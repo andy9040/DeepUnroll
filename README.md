@@ -25,6 +25,10 @@ Use the `opt` tool to apply the pass (e.g., `GatherDataFunctionPass`) to the LLV
 ```
 opt -disable-output -load-pass-plugin=./build/GatherDataFunctionPass/GatherDataFunctionPass.so -passes="loop-info" test.ll > output.json
 ```
+or
+```
+opt -disable-output -load-pass-plugin=./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so -passes="loop-unroll-benchmark" test.ll
+```
 
 To prettify the json output:
 ```

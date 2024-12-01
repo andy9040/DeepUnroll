@@ -473,8 +473,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
   /usr/local/include/llvm/Support/MemoryBufferRef.h \
   /usr/local/include/llvm/Support/SMLoc.h \
   /usr/local/include/llvm/Transforms/Utils/ValueMapper.h \
-  /usr/local/include/llvm/Transforms/Utils/Cloning.h \
-  /usr/local/include/llvm/Analysis/AssumptionCache.h \
+  /usr/local/include/llvm/Passes/PassPlugin.h \
+  /usr/local/include/llvm/Support/DynamicLibrary.h \
   /usr/local/include/llvm/Transforms/Utils/UnrollLoop.h \
   /usr/local/include/llvm/Analysis/TargetTransformInfo.h \
   /usr/local/include/llvm/ADT/SmallBitVector.h \
@@ -493,7 +493,9 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 
 /usr/local/include/llvm/Transforms/Utils/UnrollLoop.h:
 
-/usr/local/include/llvm/Analysis/AssumptionCache.h:
+/usr/local/include/llvm/Support/DynamicLibrary.h:
+
+/usr/local/include/llvm/Passes/PassPlugin.h:
 
 /usr/local/include/llvm/Support/Mutex.h:
 
@@ -908,8 +910,6 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
 /usr/include/c++/11/bits/std_function.h:
-
-/usr/local/include/llvm/Transforms/Utils/Cloning.h:
 
 /usr/include/c++/11/cmath:
 

@@ -474,8 +474,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o
  /usr/local/include/llvm/Support/MemoryBufferRef.h
  /usr/local/include/llvm/Support/SMLoc.h
  /usr/local/include/llvm/Transforms/Utils/ValueMapper.h
- /usr/local/include/llvm/Transforms/Utils/Cloning.h
- /usr/local/include/llvm/Analysis/AssumptionCache.h
+ /usr/local/include/llvm/Passes/PassPlugin.h
+ /usr/local/include/llvm/Support/DynamicLibrary.h
  /usr/local/include/llvm/Transforms/Utils/UnrollLoop.h
  /usr/local/include/llvm/Analysis/TargetTransformInfo.h
  /usr/local/include/llvm/ADT/SmallBitVector.h

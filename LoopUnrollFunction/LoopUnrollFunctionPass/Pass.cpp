@@ -1,88 +1,94 @@
 #include "llvm/IR/PassManager.h"
 #include "llvm/Passes/PassBuilder.h"
+#include "llvm/Passes/PassPlugin.h"
 #include "llvm/Analysis/LoopInfo.h"
-#include "llvm/Transforms/Utils/Cloning.h"
 #include "llvm/Transforms/Utils/UnrollLoop.h"
-#include "llvm/IR/IRBuilder.h"
+#include "llvm/Analysis/ScalarEvolution.h"
+#include "llvm/Analysis/TargetTransformInfo.h"
+#include "llvm/IR/Dominators.h"
+#include "llvm/Analysis/AssumptionCache.h"
 #include "llvm/Support/raw_ostream.h"
+#include <limits>
+#include <cstdlib>
 
 using namespace llvm;
 
 namespace {
-struct LoopUnrollBenchmarkPass : public FunctionPass {
-    static char ID;
-    LoopUnrollBenchmarkPass() : FunctionPass(ID) {}
+struct LoopUnrollBenchmarkPass : public PassInfoMixin<LoopUnrollBenchmarkPass> {
+    PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
+        auto &LoopInfo = FAM.getResult<LoopAnalysis>(F);
+        auto &ScalarEvolution = FAM.getResult<ScalarEvolutionAnalysis>(F);
+        auto &TTI = FAM.getResult<TargetIRAnalysis>(F);
+        auto &DT = FAM.getResult<DominatorTreeAnalysis>(F);
+        auto &AC = FAM.getResult<AssumptionAnalysis>(F);
 
-    bool runOnFunction(Function &F) override {
-    auto &LoopInfo = getAnalysis<LoopInfoWrapperPass>().getLoopInfo();
-    auto &ScalarEvolution = getAnalysis<ScalarEvolutionWrapperPass>().getSE();
+        for (Loop *L : LoopInfo.getLoopsInPreorder()) {
+            if (!L->isInnermost())
+                continue;
 
-    for (Loop *L : LoopInfo.getLoopsInPreorder()) {
-        if (!L->isInnermost()) continue;
-
-        errs() << "Testing unroll factors for loop in function: " << F.getName() << "\n";
-
-        unsigned BestUnrollFactor = 1;
-        double BestTime = std::numeric_limits<double>::max();
-
-        for (unsigned UnrollFactor = 1; UnrollFactor <= 8; ++UnrollFactor) {
-            // Clone the function
-            ValueToValueMapTy VMap;
-            Function *ClonedFunction = CloneFunction(&F, VMap);
-            auto &ClonedLoopInfo = getAnalysis<LoopInfoWrapperPass>(*ClonedFunction).getLoopInfo();
-            Loop *ClonedLoop = ClonedLoopInfo.getLoopFor(L->getHeader());
-
-            // Configure UnrollLoopOptions
-            UnrollLoopOptions ULO;
-            ULO.UnrollFactor = UnrollFactor;
-            ULO.Count = 0;
-            ULO.Force = true;
-            ULO.AllowRuntime = true;
-            ULO.AllowExpensiveTripCount = true;
-
-            // Unroll the loop
-            bool Unrolled = UnrollLoop(
-                ClonedLoop, ULO, &ClonedLoopInfo, &ScalarEvolution, nullptr, nullptr, false);
-
-            if (!Unrolled) {
-                errs() << "Failed to unroll loop with factor: " << UnrollFactor << "\n";
+            if (!L->isLoopSimplifyForm()) {
+                errs() << "Loop is not in simplified form, skipping.\n";
                 continue;
             }
 
-            // Mock benchmark (replace with real benchmarking)
-            double ExecutionTime = mockRunBenchmark(ClonedFunction);
+            errs() << "Testing unroll factors for loop in function: " << F.getName() << "\n";
 
-            if (ExecutionTime < BestTime) {
-                BestTime = ExecutionTime;
-                BestUnrollFactor = UnrollFactor;
+            unsigned BestUnrollFactor = 1;
+            double BestTime = std::numeric_limits<double>::max();
+
+            for (unsigned UnrollFactor = 1; UnrollFactor <= 8; ++UnrollFactor) {
+                // Configure UnrollLoopOptions
+                UnrollLoopOptions ULO;
+                ULO.Count = UnrollFactor;
+                ULO.Force = true;
+                ULO.AllowExpensiveTripCount = true;
+
+                // Attempt to unroll the loop
+                auto UnrollResult = UnrollLoop(L, ULO, &LoopInfo, &ScalarEvolution, &DT, &AC, &TTI, nullptr, false);
+
+                // Check if unrolling was successful
+                if (UnrollResult != LoopUnrollResult::FullyUnrolled &&
+                    UnrollResult != LoopUnrollResult::PartiallyUnrolled) {
+                    errs() << "Failed to unroll loop with factor: " << UnrollFactor << "\n";
+                    continue;
+                }
+
+                // Mock benchmarking result
+                double ExecutionTime = mockRunBenchmark(UnrollFactor);
+
+                if (ExecutionTime < BestTime) {
+                    BestTime = ExecutionTime;
+                    BestUnrollFactor = UnrollFactor;
+                }
             }
 
-            // Clean up cloned function
-            ClonedFunction->eraseFromParent();
+            errs() << "Best unroll factor for this loop: " << BestUnrollFactor
+                   << " with time: " << BestTime << " ms\n";
         }
 
-        errs() << "Best unroll factor for this loop: " << BestUnrollFactor
-               << " with time: " << BestTime << " ms\n";
-    }
-
-    return false; // No modifications to the original function
-}
-
-
-    void getAnalysisUsage(AnalysisUsage &AU) const override {
-        AU.addRequired<LoopInfoWrapperPass>();
-        AU.addRequired<ScalarEvolutionWrapperPass>();
+        return PreservedAnalyses::all();
     }
 
 private:
-    double mockRunBenchmark(Function *F) {
-        static double MockTime = 100.0;
-        return MockTime - (rand() % 10);
+    double mockRunBenchmark(unsigned UnrollFactor) {
+        static double BaseTime = 100.0;
+        return BaseTime - (rand() % (UnrollFactor * 5));
     }
 };
-
-char LoopUnrollBenchmarkPass::ID = 0;
-static RegisterPass<LoopUnrollBenchmarkPass> X(
-    "loop-unroll-benchmark", "Benchmark loop unrolling factors",
-    false, false);
 } // namespace
+
+extern "C" ::llvm::PassPluginLibraryInfo LLVM_ATTRIBUTE_WEAK llvmGetPassPluginInfo() {
+    return {
+        LLVM_PLUGIN_API_VERSION, "LoopUnrollBenchmarkPass", "v0.2",
+        [](PassBuilder &PB) {
+            PB.registerPipelineParsingCallback(
+                [](StringRef Name, FunctionPassManager &FPM,
+                   ArrayRef<PassBuilder::PipelineElement>) {
+                    if (Name == "loop-unroll-benchmark") {
+                        FPM.addPass(LoopUnrollBenchmarkPass());
+                        return true;
+                    }
+                    return false;
+                });
+        }};
+}
