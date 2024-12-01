@@ -1,0 +1,82 @@
+{
+    "Loops": [
+        {
+            "BasicBlocks": 3,
+            "BranchInstructions": 3,
+            "BranchProbabilities": [
+                0.96875
+            ],
+            "DependencyCounts": {
+                "Anti": 1,
+                "Flow": 1,
+                "Input": 3,
+                "Output": 2
+            },
+            "Depth": 1,
+            "Function": "main",
+            "IsSimplified": "Yes",
+            "MemoryOperations": 5,
+            "NormalBlockFrequencies": [
+                32,
+                31,
+                31
+            ],
+            "PHINodes": 0,
+            "ParentDepth": "None",
+            "TotalInstructions": 12,
+            "TripCount": "Unknown"
+        },
+        {
+            "BasicBlocks": 3,
+            "BranchInstructions": 3,
+            "BranchProbabilities": [
+                0.96875
+            ],
+            "DependencyCounts": {
+                "Anti": 2,
+                "Flow": 2,
+                "Input": 4,
+                "Output": 2
+            },
+            "Depth": 1,
+            "Function": "main",
+            "IsSimplified": "Yes",
+            "MemoryOperations": 6,
+            "NormalBlockFrequencies": [
+                32,
+                31,
+                31
+            ],
+            "PHINodes": 0,
+            "ParentDepth": "None",
+            "TotalInstructions": 14,
+            "TripCount": "Unknown"
+        },
+        {
+            "BasicBlocks": 3,
+            "BranchInstructions": 3,
+            "BranchProbabilities": [
+                0.96875
+            ],
+            "DependencyCounts": {
+                "Anti": 5,
+                "Flow": 5,
+                "Input": 12,
+                "Output": 2
+            },
+            "Depth": 1,
+            "Function": "main",
+            "IsSimplified": "Yes",
+            "MemoryOperations": 6,
+            "NormalBlockFrequencies": [
+                32,
+                31,
+                31
+            ],
+            "PHINodes": 0,
+            "ParentDepth": "None",
+            "TotalInstructions": 14,
+            "TripCount": "Unknown"
+        }
+    ]
+}

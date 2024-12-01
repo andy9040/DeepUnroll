@@ -1,0 +1,1327 @@
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:93:5: error: expected unqualified-id before ‘return’
+   93 |     return PreservedAnalyses::all();
+      |     ^~~~~~
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:94:4: error: expected ‘;’ after struct definition
+   94 |   }
+      |    ^
+      |    ;
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp: In member function ‘llvm::PreservedAnalyses {anonymous}::LoopInfoGatherPass::run(llvm::Function&, llvm::FunctionAnalysisManager&)’:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:59: error: no match for ‘operator<<’ (operand types are ‘std::basic_ostream<char>’ and ‘const llvm::SCEV’)
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~ ~~~~~~~~~~
+      |                   |                                          |
+      |                   std::basic_ostream<char>                   const llvm::SCEV
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:108:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  108 |       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:108:36: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&)’ {aka ‘std::basic_ostream<char>& (*)(std::basic_ostream<char>&)’}
+  108 |       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      |                  ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:117:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]’
+  117 |       operator<<(__ios_type& (*__pf)(__ios_type&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:117:32: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&)’ {aka ‘std::basic_ios<char>& (*)(std::basic_ios<char>&)’}
+  117 |       operator<<(__ios_type& (*__pf)(__ios_type&))
+      |                  ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:127:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  127 |       operator<<(ios_base& (*__pf) (ios_base&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:127:30: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘std::ios_base& (*)(std::ios_base&)’
+  127 |       operator<<(ios_base& (*__pf) (ios_base&))
+      |                  ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:166:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  166 |       operator<<(long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:166:23: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘long int’
+  166 |       operator<<(long __n)
+      |                  ~~~~~^~~
+/usr/include/c++/11/ostream:170:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  170 |       operator<<(unsigned long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:170:32: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘long unsigned int’
+  170 |       operator<<(unsigned long __n)
+      |                  ~~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:174:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  174 |       operator<<(bool __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:174:23: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘bool’
+  174 |       operator<<(bool __n)
+      |                  ~~~~~^~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:91:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]’
+   91 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:92:22: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘short int’
+   92 |     operator<<(short __n)
+      |                ~~~~~~^~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:181:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  181 |       operator<<(unsigned short __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:181:33: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘short unsigned int’
+  181 |       operator<<(unsigned short __n)
+      |                  ~~~~~~~~~~~~~~~^~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:105:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]’
+  105 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:106:20: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘int’
+  106 |     operator<<(int __n)
+      |                ~~~~^~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:192:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  192 |       operator<<(unsigned int __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:192:31: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘unsigned int’
+  192 |       operator<<(unsigned int __n)
+      |                  ~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:201:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  201 |       operator<<(long long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:201:28: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘long long int’
+  201 |       operator<<(long long __n)
+      |                  ~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:205:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  205 |       operator<<(unsigned long long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:205:37: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘long long unsigned int’
+  205 |       operator<<(unsigned long long __n)
+      |                  ~~~~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:220:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  220 |       operator<<(double __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:220:25: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘double’
+  220 |       operator<<(double __f)
+      |                  ~~~~~~~^~~
+/usr/include/c++/11/ostream:224:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  224 |       operator<<(float __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:224:24: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘float’
+  224 |       operator<<(float __f)
+      |                  ~~~~~~^~~
+/usr/include/c++/11/ostream:232:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  232 |       operator<<(long double __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:232:30: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘long double’
+  232 |       operator<<(long double __f)
+      |                  ~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:245:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  245 |       operator<<(const void* __p)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:245:30: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘const void*’
+  245 |       operator<<(const void* __p)
+      |                  ~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:250:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::nullptr_t) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::nullptr_t = std::nullptr_t]’
+  250 |       operator<<(nullptr_t)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:250:18: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘std::nullptr_t’
+  250 |       operator<<(nullptr_t)
+      |                  ^~~~~~~~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:119:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]’
+  119 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:120:34: note:   no known conversion for argument 1 from ‘const llvm::SCEV’ to ‘std::basic_ostream<char>::__streambuf_type*’ {aka ‘std::basic_streambuf<char>*’}
+  120 |     operator<<(__streambuf_type* __sbin)
+      |                ~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /usr/local/include/llvm/Support/ModRef.h:19,
+                 from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/raw_ostream.h:420:1: note: candidate: ‘template<class OStream, class T> std::enable_if_t<((! is_reference_v<OStream>) && is_base_of_v<llvm::raw_ostream, OStream>), OStream&&> llvm::operator<<(OStream&&, const T&)’
+  420 | operator<<(OStream &&OS, const T &Value) {
+      | ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:420:1: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/11/bits/move.h:57,
+                 from /usr/include/c++/11/bits/stl_pair.h:59,
+                 from /usr/include/c++/11/utility:70,
+                 from /usr/include/c++/11/tuple:38,
+                 from /usr/local/include/llvm/ADT/DenseMapInfo.h:20,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::basic_ostream<char>&]’:
+/usr/local/include/llvm/Support/raw_ostream.h:420:1:   required by substitution of ‘template<class OStream, class T> std::enable_if_t<((! is_reference_v<OStream>) && is_base_of_v<llvm::raw_ostream, OStream>), OStream&&> llvm::operator<<(OStream&&, const T&) [with OStream = std::basic_ostream<char>&; T = llvm::SCEV]’
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/type_traits:2579:11: error: no type named ‘type’ in ‘struct std::enable_if<false, std::basic_ostream<char>&>’
+ 2579 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+In file included from /usr/local/include/llvm/Support/ModRef.h:19,
+                 from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/raw_ostream.h:763:14: note: candidate: ‘template<class T, class> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const std::optional<_Tp>&)’
+  763 | raw_ostream &operator<<(raw_ostream &OS, const std::optional<T> &O) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:763:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘const llvm::SCEV’ is not derived from ‘const std::optional<_Tp>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/local/include/llvm/IR/Type.h:22,
+                 from /usr/local/include/llvm/IR/DerivedTypes.h:23,
+                 from /usr/local/include/llvm/IR/Function.h:29,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/TypeSize.h:408:1: note: candidate: ‘template<class LeafTy, class ScalarTy> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::details::FixedOrScalableQuantity<LeafTy, ScalarTy>&)’
+  408 | operator<<(raw_ostream &OS,
+      | ^~~~~~~~
+/usr/local/include/llvm/Support/TypeSize.h:408:1: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘const llvm::SCEV’ is not derived from ‘const llvm::details::FixedOrScalableQuantity<LeafTy, ScalarTy>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/local/include/llvm/Support/GenericLoopInfo.h:48,
+                 from /usr/local/include/llvm/Analysis/LoopInfo.h:22,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:41,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/GenericDomTree.h:174:14: note: candidate: ‘template<class NodeT> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DomTreeNodeBase<NodeT>*)’
+  174 | raw_ostream &operator<<(raw_ostream &O, const DomTreeNodeBase<NodeT> *Node) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/GenericDomTree.h:174:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   mismatched types ‘const llvm::DomTreeNodeBase<NodeT>*’ and ‘llvm::SCEV’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/LoopInfo.h:22,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:41,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/GenericLoopInfo.h:512:14: note: candidate: ‘template<class BlockT, class LoopT> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::LoopBase<BlockT, LoopT>&)’
+  512 | raw_ostream &operator<<(raw_ostream &OS, const LoopBase<BlockT, LoopT> &Loop) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/GenericLoopInfo.h:512:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘const llvm::SCEV’ is not derived from ‘const llvm::LoopBase<BlockT, LoopT>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:20,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:543:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::StringRef>)’
+  543 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:543:1: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/11/bits/move.h:57,
+                 from /usr/include/c++/11/bits/stl_pair.h:59,
+                 from /usr/include/c++/11/utility:70,
+                 from /usr/include/c++/11/tuple:38,
+                 from /usr/local/include/llvm/ADT/DenseMapInfo.h:20,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = llvm::StringRef]’:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:543:1:   required by substitution of ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::StringRef>) [with RemarkT = std::basic_ostream<char>]’
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/type_traits:2579:11: error: no type named ‘type’ in ‘struct std::enable_if<false, llvm::StringRef>’
+ 2579 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:20,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:556:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::StringRef>)’
+  556 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:556:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:567:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::Argument>)’
+  567 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:567:1: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/11/bits/move.h:57,
+                 from /usr/include/c++/11/bits/stl_pair.h:59,
+                 from /usr/include/c++/11/utility:70,
+                 from /usr/include/c++/11/tuple:38,
+                 from /usr/local/include/llvm/ADT/DenseMapInfo.h:20,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = llvm::DiagnosticInfoOptimizationBase::Argument]’:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:567:1:   required by substitution of ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::Argument>) [with RemarkT = std::basic_ostream<char>]’
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/type_traits:2579:11: error: no type named ‘type’ in ‘struct std::enable_if<false, llvm::DiagnosticInfoOptimizationBase::Argument>’
+ 2579 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:20,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:578:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::Argument>)’
+  578 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:578:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:589:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>)’
+  589 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:589:1: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/11/bits/move.h:57,
+                 from /usr/include/c++/11/bits/stl_pair.h:59,
+                 from /usr/include/c++/11/utility:70,
+                 from /usr/include/c++/11/tuple:38,
+                 from /usr/local/include/llvm/ADT/DenseMapInfo.h:20,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = llvm::DiagnosticInfoOptimizationBase::setIsVerbose]’:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:589:1:   required by substitution of ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>) [with RemarkT = std::basic_ostream<char>]’
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/type_traits:2579:11: error: no type named ‘type’ in ‘struct std::enable_if<false, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>’
+ 2579 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:20,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:600:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>)’
+  600 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:600:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:611:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setExtraArgs>)’
+  611 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:611:1: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/11/bits/move.h:57,
+                 from /usr/include/c++/11/bits/stl_pair.h:59,
+                 from /usr/include/c++/11/utility:70,
+                 from /usr/include/c++/11/tuple:38,
+                 from /usr/local/include/llvm/ADT/DenseMapInfo.h:20,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/type_traits: In substitution of ‘template<bool _Cond, class _Tp> using enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = llvm::DiagnosticInfoOptimizationBase::setExtraArgs]’:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:611:1:   required by substitution of ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setExtraArgs>) [with RemarkT = std::basic_ostream<char>]’
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/type_traits:2579:11: error: no type named ‘type’ in ‘struct std::enable_if<false, llvm::DiagnosticInfoOptimizationBase::setExtraArgs>’
+ 2579 |     using enable_if_t = typename enable_if<_Cond, _Tp>::type;
+      |           ^~~~~~~~~~~
+In file included from /usr/local/include/llvm/ADT/DenseMapInfo.h:18,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/cstddef:126:5: note: candidate: ‘template<class _IntegerType> constexpr std::__byte_op_t<_IntegerType> std::operator<<(std::byte, _IntegerType)’
+  126 |     operator<<(byte __b, _IntegerType __shift) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/11/cstddef:126:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:19: note:   cannot convert ‘std::operator<< <std::char_traits<char> >(std::cout, ((const char*)"    Trip Count (static estimate): "))’ (type ‘std::basic_ostream<char>’) to type ‘std::byte’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |         ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/basic_string.h:48,
+                 from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/bits/locale_classes.h:40,
+                 from /usr/include/c++/11/bits/ios_base.h:41,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/string_view:667:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::basic_string_view<_CharT, _Traits>)’
+  667 |     operator<<(basic_ostream<_CharT, _Traits>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/string_view:667:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘llvm::SCEV’ is not derived from ‘std::basic_string_view<_CharT, _Traits>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/bits/locale_classes.h:40,
+                 from /usr/include/c++/11/bits/ios_base.h:41,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6531:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&)’
+ 6531 |     operator<<(basic_ostream<_CharT, _Traits>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/basic_string.h:6531:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘const llvm::SCEV’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/include/c++/11/bits/ios_base.h:46,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/system_error:279:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)’
+  279 |     operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+      |     ^~~~~~~~
+/usr/include/c++/11/system_error:279:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘const std::error_code&’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/memory:77,
+                 from /usr/local/include/llvm/ADT/STLExtras.h:37,
+                 from /usr/local/include/llvm/IR/PassManager.h:41,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/bits/shared_ptr.h:70:5: note: candidate: ‘template<class _Ch, class _Tr, class _Tp, __gnu_cxx::_Lock_policy _Lp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__shared_ptr<_Tp, _Lp>&)’
+   70 |     operator<<(std::basic_ostream<_Ch, _Tr>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/shared_ptr.h:70:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   ‘const llvm::SCEV’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:513:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)’
+  513 |     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:513:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘llvm::SCEV’)
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:518:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)’
+  518 |     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:518:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘char’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:524:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)’
+  524 |     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:524:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘char’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:530:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)’
+  530 |     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:530:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘signed char’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:535:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)’
+  535 |     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:535:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘unsigned char’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:594:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)’
+  594 |     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:594:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63: note:   mismatched types ‘const _CharT*’ and ‘llvm::SCEV’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                               ^~~~~~~~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:321:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)’
+  321 |     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘const char*’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:611:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)’
+  611 |     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:611:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘const char*’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:624:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)’
+  624 |     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:624:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘const signed char*’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:629:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)’
+  629 |     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:629:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:62: note:   cannot convert ‘* TripCount’ (type ‘const llvm::SCEV’) to type ‘const unsigned char*’
+   37 |         std::cout << "    Trip Count (static estimate): " << *TripCount << "\n";
+      |                                                              ^~~~~~~~~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:750:5: note: candidate: ‘template<class _Ostream, class _Tp> _Ostream&& std::operator<<(_Ostream&&, const _Tp&)’
+  750 |     operator<<(_Ostream&& __os, const _Tp& __x)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:750:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/11/ostream: In substitution of ‘template<class _Ostream, class _Tp> _Ostream&& std::operator<<(_Ostream&&, const _Tp&) [with _Ostream = std::basic_ostream<char>&; _Tp = llvm::SCEV]’:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:37:63:   required from here
+/usr/include/c++/11/ostream:750:5: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+In file included from /usr/local/include/llvm/IR/Function.h:22,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/ADT/Twine.h:572:23: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Twine&)’
+  572 |   inline raw_ostream &operator<<(raw_ostream &OS, const Twine &RHS) {
+      |                       ^~~~~~~~
+/usr/local/include/llvm/ADT/Twine.h:572:47: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  572 |   inline raw_ostream &operator<<(raw_ostream &OS, const Twine &RHS) {
+      |                                  ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Support/ModRef.h:19,
+                 from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/raw_ostream.h:759:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, std::nullopt_t)’
+  759 | raw_ostream &operator<<(raw_ostream &OS, std::nullopt_t);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:759:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  759 | raw_ostream &operator<<(raw_ostream &OS, std::nullopt_t);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/ModRef.h:56:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::ModRefInfo)’
+   56 | raw_ostream &operator<<(raw_ostream &OS, ModRefInfo MR);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/ModRef.h:56:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   56 | raw_ostream &operator<<(raw_ostream &OS, ModRefInfo MR);
+      |                         ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/Support/ModRef.h:271:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::MemoryEffects)’
+  271 | raw_ostream &operator<<(raw_ostream &OS, MemoryEffects RMRB);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/ModRef.h:271:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  271 | raw_ostream &operator<<(raw_ostream &OS, MemoryEffects RMRB);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Argument.h:18,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Value.h:877:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Value&)’
+  877 | inline raw_ostream &operator<<(raw_ostream &OS, const Value &V) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Value.h:877:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  877 | inline raw_ostream &operator<<(raw_ostream &OS, const Value &V) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/TrackingMDRef.h:16,
+                 from /usr/local/include/llvm/IR/DebugLoc.h:17,
+                 from /usr/local/include/llvm/IR/DebugProgramInstruction.h:53,
+                 from /usr/local/include/llvm/IR/BasicBlock.h:22,
+                 from /usr/local/include/llvm/IR/Function.h:27,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Metadata.h:164:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Metadata&)’
+  164 | inline raw_ostream &operator<<(raw_ostream &OS, const Metadata &MD) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Metadata.h:164:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  164 | inline raw_ostream &operator<<(raw_ostream &OS, const Metadata &MD) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/BasicBlock.h:22,
+                 from /usr/local/include/llvm/IR/Function.h:27,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:446:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DPMarker&)’
+  446 | inline raw_ostream &operator<<(raw_ostream &OS, const DPMarker &Marker) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:446:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  446 | inline raw_ostream &operator<<(raw_ostream &OS, const DPMarker &Marker) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:451:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DPValue&)’
+  451 | inline raw_ostream &operator<<(raw_ostream &OS, const DPValue &Value) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:451:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  451 | inline raw_ostream &operator<<(raw_ostream &OS, const DPValue &Value) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/DerivedTypes.h:23,
+                 from /usr/local/include/llvm/IR/Function.h:29,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Type.h:501:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Type&)’
+  501 | inline raw_ostream &operator<<(raw_ostream &OS, const Type &T) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Type.h:501:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  501 | inline raw_ostream &operator<<(raw_ostream &OS, const Type &T) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Module.h:23,
+                 from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Comdat.h:71:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Comdat&)’
+   71 | inline raw_ostream &operator<<(raw_ostream &OS, const Comdat &C) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Comdat.h:71:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   71 | inline raw_ostream &operator<<(raw_ostream &OS, const Comdat &C) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/DataLayout.h:22,
+                 from /usr/local/include/llvm/IR/Module.h:24,
+                 from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/ADT/APInt.h:2106:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::APInt&)’
+ 2106 | inline raw_ostream &operator<<(raw_ostream &OS, const APInt &I) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/APInt.h:2106:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 2106 | inline raw_ostream &operator<<(raw_ostream &OS, const APInt &I) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Module.h:1064:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Module&)’
+ 1064 | inline raw_ostream &operator<<(raw_ostream &O, const Module &M) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Module.h:1064:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 1064 | inline raw_ostream &operator<<(raw_ostream &O, const Module &M) {
+      |                                ~~~~~~~~~~~~~^
+In file included from /usr/local/include/llvm/Analysis/TargetLibraryInfo.h:14,
+                 from /usr/local/include/llvm/Analysis/LazyCallGraph.h:45,
+                 from /usr/local/include/llvm/Analysis/CGSCCPassManager.h:92,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:18,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/InstrTypes.h:1150:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::CmpInst::Predicate)’
+ 1150 | raw_ostream &operator<<(raw_ostream &OS, CmpInst::Predicate Pred);
+      |              ^~~~~~~~
+/usr/local/include/llvm/IR/InstrTypes.h:1150:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 1150 | raw_ostream &operator<<(raw_ostream &OS, CmpInst::Predicate Pred);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/TargetParser/Triple.h:13,
+                 from /usr/local/include/llvm/Analysis/TargetLibraryInfo.h:17,
+                 from /usr/local/include/llvm/Analysis/LazyCallGraph.h:45,
+                 from /usr/local/include/llvm/Analysis/CGSCCPassManager.h:92,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:18,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/VersionTuple.h:191:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::VersionTuple&)’
+  191 | raw_ostream &operator<<(raw_ostream &Out, const VersionTuple &V);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/VersionTuple.h:191:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  191 | raw_ostream &operator<<(raw_ostream &Out, const VersionTuple &V);
+      |                         ~~~~~~~~~~~~~^~~
+In file included from /usr/local/include/llvm/ADT/APFloat.h:20,
+                 from /usr/local/include/llvm/IR/Constants.h:23,
+                 from /usr/local/include/llvm/IR/DebugInfoMetadata.h:23,
+                 from /usr/local/include/llvm/Transforms/Instrumentation.h:18,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:27,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/ADT/FloatingPointMode.h:63:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::RoundingMode)’
+   63 | inline raw_ostream &operator << (raw_ostream &OS, RoundingMode RM) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:63:47: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   63 | inline raw_ostream &operator << (raw_ostream &OS, RoundingMode RM) {
+      |                                  ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:183:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::DenormalMode)’
+  183 | inline raw_ostream& operator<<(raw_ostream &OS, DenormalMode Mode) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:183:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  183 | inline raw_ostream& operator<<(raw_ostream &OS, DenormalMode Mode) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:280:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::FPClassTest)’
+  280 | raw_ostream &operator<<(raw_ostream &OS, FPClassTest Mask);
+      |              ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:280:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  280 | raw_ostream &operator<<(raw_ostream &OS, FPClassTest Mask);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Operator.h:19,
+                 from /usr/local/include/llvm/IR/ConstantFolder.h:25,
+                 from /usr/local/include/llvm/IR/IRBuilder.h:24,
+                 from /usr/local/include/llvm/Transforms/Instrumentation.h:20,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:27,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/FMF.h:123:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::FastMathFlags)’
+  123 | inline raw_ostream &operator<<(raw_ostream &O, FastMathFlags FMF) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/FMF.h:123:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  123 | inline raw_ostream &operator<<(raw_ostream &O, FastMathFlags FMF) {
+      |                                ~~~~~~~~~~~~~^
+In file included from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:42,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Analysis/LoopNestAnalysis.h:198:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::LoopNest&)’
+  198 | raw_ostream &operator<<(raw_ostream &, const LoopNest &);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Analysis/LoopNestAnalysis.h:198:25: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  198 | raw_ostream &operator<<(raw_ostream &, const LoopNest &);
+      |                         ^~~~~~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/ScalarEvolution.h:32,
+                 from /usr/local/include/llvm/Analysis/ScalarEvolutionExpressions.h:19,
+                 from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:19,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/ConstantRange.h:578:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::ConstantRange&)’
+  578 | inline raw_ostream &operator<<(raw_ostream &OS, const ConstantRange &CR) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/ConstantRange.h:578:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  578 | inline raw_ostream &operator<<(raw_ostream &OS, const ConstantRange &CR) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/ScalarEvolutionExpressions.h:19,
+                 from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:19,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:200:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::SCEV&)’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEV &S) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:200:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEV &S) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:255:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::SCEVPredicate&)’
+  255 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEVPredicate &P) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:255:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  255 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEVPredicate &P) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/TargetTransformInfo.h:30,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:7:
+/usr/local/include/llvm/Support/BranchProbability.h:200:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::BranchProbability)’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, BranchProbability Prob) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Support/BranchProbability.h:200:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, BranchProbability Prob) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/TargetTransformInfo.h:31,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:7:
+/usr/local/include/llvm/Support/InstructionCost.h:280:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::InstructionCost&)’
+  280 | inline raw_ostream &operator<<(raw_ostream &OS, const InstructionCost &V) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Support/InstructionCost.h:280:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  280 | inline raw_ostream &operator<<(raw_ostream &OS, const InstructionCost &V) {
+      |                                ~~~~~~~~~~~~~^~
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:54: error: no match for ‘operator<<’ (operand types are ‘std::basic_ostream<char>’ and ‘llvm::Instruction’)
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^~ ~
+      |                         |                               |
+      |                         std::basic_ostream<char>        llvm::Instruction
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:108:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  108 |       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:108:36: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&)’ {aka ‘std::basic_ostream<char>& (*)(std::basic_ostream<char>&)’}
+  108 |       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+      |                  ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:117:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]’
+  117 |       operator<<(__ios_type& (*__pf)(__ios_type&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:117:32: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&)’ {aka ‘std::basic_ios<char>& (*)(std::basic_ios<char>&)’}
+  117 |       operator<<(__ios_type& (*__pf)(__ios_type&))
+      |                  ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:127:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  127 |       operator<<(ios_base& (*__pf) (ios_base&))
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:127:30: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘std::ios_base& (*)(std::ios_base&)’
+  127 |       operator<<(ios_base& (*__pf) (ios_base&))
+      |                  ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/usr/include/c++/11/ostream:166:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  166 |       operator<<(long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:166:23: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘long int’
+  166 |       operator<<(long __n)
+      |                  ~~~~~^~~
+/usr/include/c++/11/ostream:170:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  170 |       operator<<(unsigned long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:170:32: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘long unsigned int’
+  170 |       operator<<(unsigned long __n)
+      |                  ~~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:174:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  174 |       operator<<(bool __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:174:23: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘bool’
+  174 |       operator<<(bool __n)
+      |                  ~~~~~^~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:91:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]’
+   91 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:92:22: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘short int’
+   92 |     operator<<(short __n)
+      |                ~~~~~~^~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:181:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  181 |       operator<<(unsigned short __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:181:33: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘short unsigned int’
+  181 |       operator<<(unsigned short __n)
+      |                  ~~~~~~~~~~~~~~~^~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:105:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]’
+  105 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:106:20: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘int’
+  106 |     operator<<(int __n)
+      |                ~~~~^~~
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:192:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  192 |       operator<<(unsigned int __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:192:31: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘unsigned int’
+  192 |       operator<<(unsigned int __n)
+      |                  ~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:201:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  201 |       operator<<(long long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:201:28: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘long long int’
+  201 |       operator<<(long long __n)
+      |                  ~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:205:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  205 |       operator<<(unsigned long long __n)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:205:37: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘long long unsigned int’
+  205 |       operator<<(unsigned long long __n)
+      |                  ~~~~~~~~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:220:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  220 |       operator<<(double __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:220:25: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘double’
+  220 |       operator<<(double __f)
+      |                  ~~~~~~~^~~
+/usr/include/c++/11/ostream:224:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  224 |       operator<<(float __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:224:24: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘float’
+  224 |       operator<<(float __f)
+      |                  ~~~~~~^~~
+/usr/include/c++/11/ostream:232:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  232 |       operator<<(long double __f)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:232:30: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘long double’
+  232 |       operator<<(long double __f)
+      |                  ~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:245:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]’
+  245 |       operator<<(const void* __p)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:245:30: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘const void*’
+  245 |       operator<<(const void* __p)
+      |                  ~~~~~~~~~~~~^~~
+/usr/include/c++/11/ostream:250:7: note: candidate: ‘std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::nullptr_t) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::nullptr_t = std::nullptr_t]’
+  250 |       operator<<(nullptr_t)
+      |       ^~~~~~~~
+/usr/include/c++/11/ostream:250:18: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘std::nullptr_t’
+  250 |       operator<<(nullptr_t)
+      |                  ^~~~~~~~~
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:119:5: note: candidate: ‘std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]’
+  119 |     basic_ostream<_CharT, _Traits>::
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:120:34: note:   no known conversion for argument 1 from ‘llvm::Instruction’ to ‘std::basic_ostream<char>::__streambuf_type*’ {aka ‘std::basic_streambuf<char>*’}
+  120 |     operator<<(__streambuf_type* __sbin)
+      |                ~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /usr/local/include/llvm/Support/ModRef.h:19,
+                 from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/raw_ostream.h:420:1: note: candidate: ‘template<class OStream, class T> std::enable_if_t<((! is_reference_v<OStream>) && is_base_of_v<llvm::raw_ostream, OStream>), OStream&&> llvm::operator<<(OStream&&, const T&)’
+  420 | operator<<(OStream &&OS, const T &Value) {
+      | ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:420:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/Support/raw_ostream.h:763:14: note: candidate: ‘template<class T, class> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const std::optional<_Tp>&)’
+  763 | raw_ostream &operator<<(raw_ostream &OS, const std::optional<T> &O) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:763:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘const std::optional<_Tp>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/local/include/llvm/IR/Type.h:22,
+                 from /usr/local/include/llvm/IR/DerivedTypes.h:23,
+                 from /usr/local/include/llvm/IR/Function.h:29,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/TypeSize.h:408:1: note: candidate: ‘template<class LeafTy, class ScalarTy> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::details::FixedOrScalableQuantity<LeafTy, ScalarTy>&)’
+  408 | operator<<(raw_ostream &OS,
+      | ^~~~~~~~
+/usr/local/include/llvm/Support/TypeSize.h:408:1: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘const llvm::details::FixedOrScalableQuantity<LeafTy, ScalarTy>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/local/include/llvm/Support/GenericLoopInfo.h:48,
+                 from /usr/local/include/llvm/Analysis/LoopInfo.h:22,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:41,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/GenericDomTree.h:174:14: note: candidate: ‘template<class NodeT> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DomTreeNodeBase<NodeT>*)’
+  174 | raw_ostream &operator<<(raw_ostream &O, const DomTreeNodeBase<NodeT> *Node) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/GenericDomTree.h:174:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   mismatched types ‘const llvm::DomTreeNodeBase<NodeT>*’ and ‘llvm::Instruction’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/local/include/llvm/Analysis/LoopInfo.h:22,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:41,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/GenericLoopInfo.h:512:14: note: candidate: ‘template<class BlockT, class LoopT> llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::LoopBase<BlockT, LoopT>&)’
+  512 | raw_ostream &operator<<(raw_ostream &OS, const LoopBase<BlockT, LoopT> &Loop) {
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/GenericLoopInfo.h:512:14: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘const llvm::LoopBase<BlockT, LoopT>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:20,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:543:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::StringRef>)’
+  543 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:543:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:556:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::StringRef>)’
+  556 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:556:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:567:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::Argument>)’
+  567 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:567:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:578:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::Argument>)’
+  578 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:578:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:589:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>)’
+  589 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:589:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:600:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setIsVerbose>)’
+  600 | operator<<(RemarkT &&R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:600:1: note:   template argument deduction/substitution failed:
+/usr/local/include/llvm/IR/DiagnosticInfo.h:611:1: note: candidate: ‘template<class RemarkT> RemarkT& llvm::operator<<(RemarkT&, std::enable_if_t<std::is_base_of<llvm::DiagnosticInfoOptimizationBase, RemarkT>::value, llvm::DiagnosticInfoOptimizationBase::setExtraArgs>)’
+  611 | operator<<(RemarkT &R,
+      | ^~~~~~~~
+/usr/local/include/llvm/IR/DiagnosticInfo.h:611:1: note:   template argument deduction/substitution failed:
+In file included from /usr/local/include/llvm/ADT/DenseMapInfo.h:18,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:17,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/cstddef:126:5: note: candidate: ‘template<class _IntegerType> constexpr std::__byte_op_t<_IntegerType> std::operator<<(std::byte, _IntegerType)’
+  126 |     operator<<(byte __b, _IntegerType __shift) noexcept
+      |     ^~~~~~~~
+/usr/include/c++/11/cstddef:126:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:25: note:   cannot convert ‘std::operator<< <std::char_traits<char> >(std::cout, ((const char*)"    Dependency between "))’ (type ‘std::basic_ostream<char>’) to type ‘std::byte’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |               ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/11/bits/basic_string.h:48,
+                 from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/bits/locale_classes.h:40,
+                 from /usr/include/c++/11/bits/ios_base.h:41,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/string_view:667:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, std::basic_string_view<_CharT, _Traits>)’
+  667 |     operator<<(basic_ostream<_CharT, _Traits>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/string_view:667:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘std::basic_string_view<_CharT, _Traits>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/string:55,
+                 from /usr/include/c++/11/bits/locale_classes.h:40,
+                 from /usr/include/c++/11/bits/ios_base.h:41,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/bits/basic_string.h:6531:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>&)’
+ 6531 |     operator<<(basic_ostream<_CharT, _Traits>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/basic_string.h:6531:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Allocator>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/bits/ios_base.h:46,
+                 from /usr/include/c++/11/streambuf:41,
+                 from /usr/include/c++/11/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/11/iterator:66,
+                 from /usr/local/include/llvm/ADT/DenseMap.h:30,
+                 from /usr/local/include/llvm/IR/PassManager.h:40,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/system_error:279:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::error_code&)’
+  279 |     operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __e)
+      |     ^~~~~~~~
+/usr/include/c++/11/system_error:279:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘const std::error_code&’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/memory:77,
+                 from /usr/local/include/llvm/ADT/STLExtras.h:37,
+                 from /usr/local/include/llvm/IR/PassManager.h:41,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/include/c++/11/bits/shared_ptr.h:70:5: note: candidate: ‘template<class _Ch, class _Tr, class _Tp, __gnu_cxx::_Lock_policy _Lp> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::__shared_ptr<_Tp, _Lp>&)’
+   70 |     operator<<(std::basic_ostream<_Ch, _Tr>& __os,
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/shared_ptr.h:70:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   ‘llvm::Instruction’ is not derived from ‘const std::__shared_ptr<_Tp, _Lp>’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:513:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)’
+  513 |     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:513:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   deduced conflicting types for parameter ‘_CharT’ (‘char’ and ‘llvm::Instruction’)
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:518:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)’
+  518 |     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:518:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘char’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:524:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)’
+  524 |     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:524:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘char’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:530:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)’
+  530 |     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:530:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘signed char’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:535:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)’
+  535 |     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:535:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘unsigned char’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:594:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)’
+  594 |     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:594:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   mismatched types ‘const _CharT*’ and ‘llvm::Instruction’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/ostream:829,
+                 from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/bits/ostream.tcc:321:5: note: candidate: ‘template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)’
+  321 |     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘const char*’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:611:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)’
+  611 |     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:611:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘const char*’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:624:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)’
+  624 |     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:624:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘const signed char*’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:629:5: note: candidate: ‘template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)’
+  629 |     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:629:5: note:   template argument deduction/substitution failed:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57: note:   cannot convert ‘I’ (type ‘llvm::Instruction’) to type ‘const unsigned char*’
+   65 |               std::cout << "    Dependency between " << I << " and " << J << "\n";
+      |                                                         ^
+In file included from /usr/include/c++/11/iostream:39,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:9:
+/usr/include/c++/11/ostream:750:5: note: candidate: ‘template<class _Ostream, class _Tp> _Ostream&& std::operator<<(_Ostream&&, const _Tp&)’
+  750 |     operator<<(_Ostream&& __os, const _Tp& __x)
+      |     ^~~~~~~~
+/usr/include/c++/11/ostream:750:5: note:   template argument deduction/substitution failed:
+/usr/include/c++/11/ostream: In substitution of ‘template<class _Ostream, class _Tp> _Ostream&& std::operator<<(_Ostream&&, const _Tp&) [with _Ostream = std::basic_ostream<char>&; _Tp = llvm::Instruction]’:
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:65:57:   required from here
+/usr/include/c++/11/ostream:750:5: error: no type named ‘type’ in ‘struct std::enable_if<false, void>’
+In file included from /usr/local/include/llvm/IR/Function.h:22,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/ADT/Twine.h:572:23: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Twine&)’
+  572 |   inline raw_ostream &operator<<(raw_ostream &OS, const Twine &RHS) {
+      |                       ^~~~~~~~
+/usr/local/include/llvm/ADT/Twine.h:572:47: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  572 |   inline raw_ostream &operator<<(raw_ostream &OS, const Twine &RHS) {
+      |                                  ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Support/ModRef.h:19,
+                 from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/raw_ostream.h:759:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, std::nullopt_t)’
+  759 | raw_ostream &operator<<(raw_ostream &OS, std::nullopt_t);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/raw_ostream.h:759:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  759 | raw_ostream &operator<<(raw_ostream &OS, std::nullopt_t);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Attributes.h:25,
+                 from /usr/local/include/llvm/IR/Argument.h:17,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/Support/ModRef.h:56:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::ModRefInfo)’
+   56 | raw_ostream &operator<<(raw_ostream &OS, ModRefInfo MR);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/ModRef.h:56:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   56 | raw_ostream &operator<<(raw_ostream &OS, ModRefInfo MR);
+      |                         ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/Support/ModRef.h:271:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::MemoryEffects)’
+  271 | raw_ostream &operator<<(raw_ostream &OS, MemoryEffects RMRB);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/ModRef.h:271:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  271 | raw_ostream &operator<<(raw_ostream &OS, MemoryEffects RMRB);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Argument.h:18,
+                 from /usr/local/include/llvm/IR/Function.h:25,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Value.h:877:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Value&)’
+  877 | inline raw_ostream &operator<<(raw_ostream &OS, const Value &V) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Value.h:877:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  877 | inline raw_ostream &operator<<(raw_ostream &OS, const Value &V) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/TrackingMDRef.h:16,
+                 from /usr/local/include/llvm/IR/DebugLoc.h:17,
+                 from /usr/local/include/llvm/IR/DebugProgramInstruction.h:53,
+                 from /usr/local/include/llvm/IR/BasicBlock.h:22,
+                 from /usr/local/include/llvm/IR/Function.h:27,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Metadata.h:164:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Metadata&)’
+  164 | inline raw_ostream &operator<<(raw_ostream &OS, const Metadata &MD) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Metadata.h:164:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  164 | inline raw_ostream &operator<<(raw_ostream &OS, const Metadata &MD) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/BasicBlock.h:22,
+                 from /usr/local/include/llvm/IR/Function.h:27,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:446:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DPMarker&)’
+  446 | inline raw_ostream &operator<<(raw_ostream &OS, const DPMarker &Marker) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:446:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  446 | inline raw_ostream &operator<<(raw_ostream &OS, const DPMarker &Marker) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:451:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::DPValue&)’
+  451 | inline raw_ostream &operator<<(raw_ostream &OS, const DPValue &Value) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/DebugProgramInstruction.h:451:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  451 | inline raw_ostream &operator<<(raw_ostream &OS, const DPValue &Value) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/DerivedTypes.h:23,
+                 from /usr/local/include/llvm/IR/Function.h:29,
+                 from /usr/local/include/llvm/IR/PassManager.h:45,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Type.h:501:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Type&)’
+  501 | inline raw_ostream &operator<<(raw_ostream &OS, const Type &T) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Type.h:501:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  501 | inline raw_ostream &operator<<(raw_ostream &OS, const Type &T) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Module.h:23,
+                 from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Comdat.h:71:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Comdat&)’
+   71 | inline raw_ostream &operator<<(raw_ostream &OS, const Comdat &C) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Comdat.h:71:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   71 | inline raw_ostream &operator<<(raw_ostream &OS, const Comdat &C) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/DataLayout.h:22,
+                 from /usr/local/include/llvm/IR/Module.h:24,
+                 from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/ADT/APInt.h:2106:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::APInt&)’
+ 2106 | inline raw_ostream &operator<<(raw_ostream &OS, const APInt &I) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/APInt.h:2106:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 2106 | inline raw_ostream &operator<<(raw_ostream &OS, const APInt &I) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/PassManager.h:46,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:1:
+/usr/local/include/llvm/IR/Module.h:1064:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::Module&)’
+ 1064 | inline raw_ostream &operator<<(raw_ostream &O, const Module &M) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/Module.h:1064:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 1064 | inline raw_ostream &operator<<(raw_ostream &O, const Module &M) {
+      |                                ~~~~~~~~~~~~~^
+In file included from /usr/local/include/llvm/Analysis/TargetLibraryInfo.h:14,
+                 from /usr/local/include/llvm/Analysis/LazyCallGraph.h:45,
+                 from /usr/local/include/llvm/Analysis/CGSCCPassManager.h:92,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:18,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/InstrTypes.h:1150:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::CmpInst::Predicate)’
+ 1150 | raw_ostream &operator<<(raw_ostream &OS, CmpInst::Predicate Pred);
+      |              ^~~~~~~~
+/usr/local/include/llvm/IR/InstrTypes.h:1150:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+ 1150 | raw_ostream &operator<<(raw_ostream &OS, CmpInst::Predicate Pred);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/TargetParser/Triple.h:13,
+                 from /usr/local/include/llvm/Analysis/TargetLibraryInfo.h:17,
+                 from /usr/local/include/llvm/Analysis/LazyCallGraph.h:45,
+                 from /usr/local/include/llvm/Analysis/CGSCCPassManager.h:92,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:18,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Support/VersionTuple.h:191:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::VersionTuple&)’
+  191 | raw_ostream &operator<<(raw_ostream &Out, const VersionTuple &V);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Support/VersionTuple.h:191:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  191 | raw_ostream &operator<<(raw_ostream &Out, const VersionTuple &V);
+      |                         ~~~~~~~~~~~~~^~~
+In file included from /usr/local/include/llvm/ADT/APFloat.h:20,
+                 from /usr/local/include/llvm/IR/Constants.h:23,
+                 from /usr/local/include/llvm/IR/DebugInfoMetadata.h:23,
+                 from /usr/local/include/llvm/Transforms/Instrumentation.h:18,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:27,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/ADT/FloatingPointMode.h:63:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::RoundingMode)’
+   63 | inline raw_ostream &operator << (raw_ostream &OS, RoundingMode RM) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:63:47: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+   63 | inline raw_ostream &operator << (raw_ostream &OS, RoundingMode RM) {
+      |                                  ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:183:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::DenormalMode)’
+  183 | inline raw_ostream& operator<<(raw_ostream &OS, DenormalMode Mode) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:183:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  183 | inline raw_ostream& operator<<(raw_ostream &OS, DenormalMode Mode) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:280:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::FPClassTest)’
+  280 | raw_ostream &operator<<(raw_ostream &OS, FPClassTest Mask);
+      |              ^~~~~~~~
+/usr/local/include/llvm/ADT/FloatingPointMode.h:280:38: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  280 | raw_ostream &operator<<(raw_ostream &OS, FPClassTest Mask);
+      |                         ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/IR/Operator.h:19,
+                 from /usr/local/include/llvm/IR/ConstantFolder.h:25,
+                 from /usr/local/include/llvm/IR/IRBuilder.h:24,
+                 from /usr/local/include/llvm/Transforms/Instrumentation.h:20,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:27,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/FMF.h:123:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::FastMathFlags)’
+  123 | inline raw_ostream &operator<<(raw_ostream &O, FastMathFlags FMF) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/FMF.h:123:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  123 | inline raw_ostream &operator<<(raw_ostream &O, FastMathFlags FMF) {
+      |                                ~~~~~~~~~~~~~^
+In file included from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:42,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Analysis/LoopNestAnalysis.h:198:14: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::LoopNest&)’
+  198 | raw_ostream &operator<<(raw_ostream &, const LoopNest &);
+      |              ^~~~~~~~
+/usr/local/include/llvm/Analysis/LoopNestAnalysis.h:198:25: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  198 | raw_ostream &operator<<(raw_ostream &, const LoopNest &);
+      |                         ^~~~~~~~~~~~~
+In file included from /usr/local/include/llvm/Analysis/ScalarEvolution.h:32,
+                 from /usr/local/include/llvm/Analysis/ScalarEvolutionExpressions.h:19,
+                 from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:19,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/IR/ConstantRange.h:578:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::ConstantRange&)’
+  578 | inline raw_ostream &operator<<(raw_ostream &OS, const ConstantRange &CR) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/IR/ConstantRange.h:578:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  578 | inline raw_ostream &operator<<(raw_ostream &OS, const ConstantRange &CR) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/ScalarEvolutionExpressions.h:19,
+                 from /usr/local/include/llvm/Analysis/LoopAccessAnalysis.h:19,
+                 from /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:17,
+                 from /usr/local/include/llvm/Transforms/Scalar/LoopPassManager.h:46,
+                 from /usr/local/include/llvm/Passes/PassBuilder.h:28,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:2:
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:200:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::SCEV&)’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEV &S) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:200:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEV &S) {
+      |                                ~~~~~~~~~~~~~^~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:255:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::SCEVPredicate&)’
+  255 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEVPredicate &P) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Analysis/ScalarEvolution.h:255:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  255 | inline raw_ostream &operator<<(raw_ostream &OS, const SCEVPredicate &P) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/TargetTransformInfo.h:30,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:7:
+/usr/local/include/llvm/Support/BranchProbability.h:200:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, llvm::BranchProbability)’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, BranchProbability Prob) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Support/BranchProbability.h:200:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  200 | inline raw_ostream &operator<<(raw_ostream &OS, BranchProbability Prob) {
+      |                                ~~~~~~~~~~~~~^~
+In file included from /usr/local/include/llvm/Analysis/TargetTransformInfo.h:31,
+                 from /n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:7:
+/usr/local/include/llvm/Support/InstructionCost.h:280:21: note: candidate: ‘llvm::raw_ostream& llvm::operator<<(llvm::raw_ostream&, const llvm::InstructionCost&)’
+  280 | inline raw_ostream &operator<<(raw_ostream &OS, const InstructionCost &V) {
+      |                     ^~~~~~~~
+/usr/local/include/llvm/Support/InstructionCost.h:280:45: note:   no known conversion for argument 1 from ‘std::basic_ostream<char>’ to ‘llvm::raw_ostream&’
+  280 | inline raw_ostream &operator<<(raw_ostream &OS, const InstructionCost &V) {
+      |                                ~~~~~~~~~~~~~^~
+/n/eecs583a/home/andrenan/DeepUnroll/GatherDataFunction/GatherDataFunctionPass/Pass.cpp:91:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   91 |   }
+      |   ^
+make[2]: *** [GatherDataFunctionPass/CMakeFiles/GatherDataFunctionPass.dir/build.make:76: GatherDataFunctionPass/CMakeFiles/GatherDataFunctionPass.dir/Pass.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:208: GatherDataFunctionPass/CMakeFiles/GatherDataFunctionPass.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
