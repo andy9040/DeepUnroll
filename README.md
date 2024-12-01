@@ -34,3 +34,6 @@ To prettify the json output:
 ```
 python3 -m json.tool output.json > pretty_output.json
 ```
+
+# CSV Outpt
+Depth,BasicBlocks,TotalInstructions,MemoryOperations,BranchInstructions,PHINodes,FlowDeps,AntiDeps,OutputDeps,InputDeps,IsSimplified,NormalizedBlockFrequencies,BranchProbabilities, IDEAL LOOP UNROLL FACTOR

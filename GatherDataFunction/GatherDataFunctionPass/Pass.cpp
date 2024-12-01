@@ -7,43 +7,44 @@
 #include "llvm/Analysis/BranchProbabilityInfo.h"
 #include "llvm/Analysis/BlockFrequencyInfo.h"
 #include "llvm/Support/raw_ostream.h"
-#include "llvm/Support/JSON.h"
+#include <iostream>
+#include <fstream>
+
 
 using namespace llvm;
 
 namespace {
   struct LoopInfoGatherPass : public PassInfoMixin<LoopInfoGatherPass> {
     PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
+        std::string filename = "output.csv";
+        std::ofstream file;
+        file.open(filename, std::ios::app);
+
         auto &LoopInfo = FAM.getResult<LoopAnalysis>(F);
         auto &ScalarEvolution = FAM.getResult<ScalarEvolutionAnalysis>(F);
         auto &DA = FAM.getResult<DependenceAnalysis>(F);
         auto &BFI = FAM.getResult<BlockFrequencyAnalysis>(F);
         auto &BPI = FAM.getResult<BranchProbabilityAnalysis>(F);
 
-        json::Array LoopsArray;
         double BaselineFrequency = static_cast<double>(BFI.getEntryFreq().getFrequency());
 
+        // Print CSV header
+        // llvm::outs() << "Function,Depth,BasicBlocks,TripCount,TotalInstructions,MemoryOperations,"
+        //              << "BranchInstructions,PHINodes,FlowDeps,AntiDeps,OutputDeps,InputDeps,"
+        //              << "ParentDepth,IsSimplified,NormalizedBlockFrequencies,BranchProbabilities\n";
 
-        // Iterate over loops in the function
         for (auto *loop : LoopInfo.getLoopsInPreorder()) {
-            json::Object LoopObj;
+            // Collect data for each loop
+            std::string FunctionName = F.getName().str();
+            unsigned Depth = loop->getLoopDepth();
+            unsigned BasicBlocks = loop->getNumBlocks();
 
-            // Basic loop properties
-            LoopObj["Function"] = F.getName().str();
-            LoopObj["Depth"] = loop->getLoopDepth();
-            LoopObj["BasicBlocks"] = loop->getNumBlocks();
-
-            // Static trip count estimate
+            std::string TripCountStr = "Unknown";
             if (ScalarEvolution.hasLoopInvariantBackedgeTakenCount(loop)) {
-                std::string TripCountStr;
                 llvm::raw_string_ostream RSO(TripCountStr);
                 ScalarEvolution.getBackedgeTakenCount(loop)->print(RSO);
-                LoopObj["TripCount"] = RSO.str();
-            } else {
-                LoopObj["TripCount"] = "Unknown";
             }
 
-            // Instruction analysis
             unsigned TotalInstructions = 0, MemOps = 0, Branches = 0, PHINodes = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -59,12 +60,7 @@ namespace {
                     }
                 }
             }
-            LoopObj["TotalInstructions"] = TotalInstructions;
-            LoopObj["MemoryOperations"] = MemOps;
-            LoopObj["BranchInstructions"] = Branches;
-            LoopObj["PHINodes"] = PHINodes;
 
-            // Dependency analysis (counts only)
             unsigned FlowDeps = 0, AntiDeps = 0, OutputDeps = 0, InputDeps = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -78,61 +74,43 @@ namespace {
                     }
                 }
             }
-            LoopObj["DependencyCounts"] = json::Object({
-                {"Flow", FlowDeps},
-                {"Anti", AntiDeps},
-                {"Output", OutputDeps},
-                {"Input", InputDeps}
-            });
 
-            // Parent loop information
+            std::string ParentDepthStr = "None";
             if (auto *Parent = loop->getParentLoop()) {
-                LoopObj["ParentDepth"] = Parent->getLoopDepth();
-            } else {
-                LoopObj["ParentDepth"] = "None";
+                ParentDepthStr = std::to_string(Parent->getLoopDepth());
             }
 
-            // Simplified form check
-            LoopObj["IsSimplified"] = loop->isLoopSimplifyForm() ? "Yes" : "No";
+            std::string IsSimplified = loop->isLoopSimplifyForm() ? "1" : "0";
 
-            // Block Frequency Analysis
-            json::Array BlockFrequencies;
-
+            std::string BlockFreqsStr;
             for (auto *BB : loop->blocks()) {
                 double NormalizedFreq = BFI.getBlockFreq(BB).getFrequency() / BaselineFrequency;
-                BlockFrequencies.push_back(NormalizedFreq);
+                if (!BlockFreqsStr.empty()) BlockFreqsStr += ";";
+                BlockFreqsStr += std::to_string(NormalizedFreq);
             }
 
-
-            LoopObj["NormalBlockFrequencies"] = std::move(BlockFrequencies);
-
-            // Branch Probability Analysis
-            json::Array BranchProbabilities;
+            std::string BranchProbsStr;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
                     if (auto *BI = dyn_cast<BranchInst>(&I)) {
                         if (BI->isConditional()) {
                             auto Prob = BPI.getEdgeProbability(BB, BI->getSuccessor(0));
-                            BranchProbabilities.push_back(Prob.getNumerator() / (double)Prob.getDenominator());
+                            if (!BranchProbsStr.empty()) BranchProbsStr += ";";
+                            BranchProbsStr += std::to_string(Prob.getNumerator() / (double)Prob.getDenominator());
                         }
                     }
                 }
             }
-            LoopObj["BranchProbabilities"] = std::move(BranchProbabilities);
 
-            // Add this loop's JSON to the array
-            LoopsArray.push_back(std::move(LoopObj));
+            // Print CSV row
+            file << Depth << "," << BasicBlocks << ","
+                         << TotalInstructions << "," << MemOps << "," << Branches << "," << PHINodes << ","
+                         << FlowDeps << "," << AntiDeps << "," << OutputDeps << "," << InputDeps << ","
+                         << "," << IsSimplified << ",\"" << BlockFreqsStr << "\",\""
+                         << BranchProbsStr << "\"\n";
         }
 
-        // Only print if there are loops
-        if (!LoopsArray.empty()) {
-            json::Object Output;
-            Output["Loops"] = std::move(LoopsArray);
-
-            // Print the complete JSON object
-            llvm::outs() << json::Value(std::move(Output)) << "\n";
-        }
-
+        file.close();
         return PreservedAnalyses::all();
     }
   };
