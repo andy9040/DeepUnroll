@@ -37,6 +37,7 @@ for SOURCE_FILE in $FILES; do
     BASE_NAME=$(basename "$SOURCE_FILE" .c)
     LLVM_IR_FILE="${BASE_NAME}.ll"
     echo "Processing file: $SOURCE_FILE"
+    echo "$SOURCE_FILE" >> output.txt
 
     # Step 1: Compile the source file into LLVM IR
     echo "Compiling $SOURCE_FILE into LLVM IR..."
