@@ -8,13 +8,13 @@
 #include "llvm/IR/Dominators.h"
 #include "llvm/Analysis/AssumptionCache.h"
 #include "llvm/Support/raw_ostream.h"
-#include <limits>
-#include <cstdlib>
+#include "llvm/Support/FileSystem.h"
 
 using namespace llvm;
 
+int globalOrder = 0;
 namespace {
-struct LoopUnrollBenchmarkPass : public PassInfoMixin<LoopUnrollBenchmarkPass> {
+struct LoopUnrollEmitPass : public PassInfoMixin<LoopUnrollEmitPass> {
     PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
         auto &LoopInfo = FAM.getResult<LoopAnalysis>(F);
         auto &ScalarEvolution = FAM.getResult<ScalarEvolutionAnalysis>(F);
@@ -31,10 +31,7 @@ struct LoopUnrollBenchmarkPass : public PassInfoMixin<LoopUnrollBenchmarkPass> {
                 continue;
             }
 
-            errs() << "Testing unroll factors for loop in function: " << F.getName() << "\n";
-
-            unsigned BestUnrollFactor = 1;
-            double BestTime = std::numeric_limits<double>::max();
+            errs() << "Processing loop in function: " << F.getName() << "\n";
 
             for (unsigned UnrollFactor = 1; UnrollFactor <= 8; ++UnrollFactor) {
                 // Configure UnrollLoopOptions
@@ -53,39 +50,38 @@ struct LoopUnrollBenchmarkPass : public PassInfoMixin<LoopUnrollBenchmarkPass> {
                     continue;
                 }
 
-                // Mock benchmarking result
-                double ExecutionTime = mockRunBenchmark(UnrollFactor);
-
-                if (ExecutionTime < BestTime) {
-                    BestTime = ExecutionTime;
-                    BestUnrollFactor = UnrollFactor;
+                // Save the modified function to a file
+                std::string FileName = "unrolled_factor_loop" +std::to_string(globalOrder) + "_factor_" + std::to_string(UnrollFactor) + ".ll";
+                std::error_code EC;
+                llvm::raw_fd_ostream Out(FileName, EC, llvm::sys::fs::OF_None);
+                if (!EC) {
+                    F.getParent()->print(Out, nullptr);
+                    errs() << "Saved IR for unroll factor " << UnrollFactor << " to " << FileName << "\n";
+                } else {
+                    errs() << "Failed to write file: " << FileName << "\n";
                 }
-            }
+                
 
-            errs() << "Best unroll factor for this loop: " << BestUnrollFactor
-                   << " with time: " << BestTime << " ms\n";
+            }
+            globalOrder++;
+            
         }
+        
 
         return PreservedAnalyses::all();
-    }
-
-private:
-    double mockRunBenchmark(unsigned UnrollFactor) {
-        static double BaseTime = 100.0;
-        return BaseTime - (rand() % (UnrollFactor * 5));
     }
 };
 } // namespace
 
 extern "C" ::llvm::PassPluginLibraryInfo LLVM_ATTRIBUTE_WEAK llvmGetPassPluginInfo() {
     return {
-        LLVM_PLUGIN_API_VERSION, "LoopUnrollBenchmarkPass", "v0.2",
+        LLVM_PLUGIN_API_VERSION, "LoopUnrollEmitPass", "v0.1",
         [](PassBuilder &PB) {
             PB.registerPipelineParsingCallback(
                 [](StringRef Name, FunctionPassManager &FPM,
                    ArrayRef<PassBuilder::PipelineElement>) {
-                    if (Name == "loop-unroll-benchmark") {
-                        FPM.addPass(LoopUnrollBenchmarkPass());
+                    if (Name == "loop-unroll-emit") {
+                        FPM.addPass(LoopUnrollEmitPass());
                         return true;
                     }
                     return false;

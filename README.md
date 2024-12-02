@@ -27,7 +27,7 @@ opt -disable-output -load-pass-plugin=./build/GatherDataFunctionPass/GatherDataF
 ```
 or
 ```
-opt -disable-output -load-pass-plugin=./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so -passes="loop-unroll-benchmark" test.ll
+opt -disable-output -load-pass-plugin=./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so -passes="loop-unroll-emit" test.ll
 ```
 
 To prettify the json output:
@@ -37,3 +37,7 @@ python3 -m json.tool output.json > pretty_output.json
 
 # CSV Outpt
 Depth,BasicBlocks,TotalInstructions,MemoryOperations,BranchInstructions,PHINodes,FlowDeps,AntiDeps,OutputDeps,InputDeps,IsSimplified,NormalizedBlockFrequencies,BranchProbabilities, IDEAL LOOP UNROLL FACTOR
+
+# Set up
+Server/Execution Requirements - Install LLVM 18.1.8
+Python Requirements - 'pip3 install llvmlite'
