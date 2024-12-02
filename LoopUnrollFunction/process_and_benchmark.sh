@@ -144,6 +144,7 @@ for SOURCE_FILE in $FILES; do
             echo "$FASTEST_FACTOR" >> "$OUTPUT_FILE"
         else
             echo "No valid unroll factor found for $GLOBAL_ID."
+            echo "skipped" >> "$OUTPUT_FILE"
         fi
     done
 
