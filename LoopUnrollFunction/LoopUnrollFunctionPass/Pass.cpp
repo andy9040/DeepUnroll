@@ -13,6 +13,7 @@
 using namespace llvm;
 
 int globalOrder = 0;
+
 namespace {
 struct LoopUnrollEmitPass : public PassInfoMixin<LoopUnrollEmitPass> {
     PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
@@ -23,15 +24,15 @@ struct LoopUnrollEmitPass : public PassInfoMixin<LoopUnrollEmitPass> {
         auto &AC = FAM.getResult<AssumptionAnalysis>(F);
 
         for (Loop *L : LoopInfo.getLoopsInPreorder()) {
-            if (!L->isInnermost())
-                continue;
+            // if (!L->isInnermost())
+            //     continue;
 
-            if (!L->isLoopSimplifyForm()) {
-                errs() << "Loop is not in simplified form, skipping.\n";
-                continue;
-            }
+            // if (!L->isLoopSimplifyForm()) {
+            //     errs() << "Loop is not in simplified form, skipping.\n";
+            //     continue;
+            // }
 
-            errs() << "Processing loop in function: " << F.getName() << "\n";
+            // errs() << "Processing loop in function: " << F.getName() << "\n";
 
             for (unsigned UnrollFactor = 1; UnrollFactor <= 8; ++UnrollFactor) {
                 // Configure UnrollLoopOptions
@@ -51,28 +52,28 @@ struct LoopUnrollEmitPass : public PassInfoMixin<LoopUnrollEmitPass> {
                 }
 
                 // Save the modified function to a file
-                std::string FileName = "unrolled_factor_loop" +std::to_string(globalOrder) + "_factor_" + std::to_string(UnrollFactor) + ".ll";
+                std::string FileName = "unrolled_factor_loop" + std::to_string(globalOrder) +
+                                       "_factor_" + std::to_string(UnrollFactor) + ".ll";
                 std::error_code EC;
                 llvm::raw_fd_ostream Out(FileName, EC, llvm::sys::fs::OF_None);
+
                 if (!EC) {
+                    // Print the module to a file, ensuring compatibility with older LLVM
                     F.getParent()->print(Out, nullptr);
-                    errs() << "Saved IR for unroll factor " << UnrollFactor << " to " << FileName << "\n";
+                    // errs() << "Saved IR for unroll factor " << UnrollFactor << " to " << FileName << "\n";
                 } else {
                     errs() << "Failed to write file: " << FileName << "\n";
                 }
-                
-
             }
             globalOrder++;
-            
         }
-        
 
         return PreservedAnalyses::all();
     }
 };
 } // namespace
 
+// Plugin Registration
 extern "C" ::llvm::PassPluginLibraryInfo LLVM_ATTRIBUTE_WEAK llvmGetPassPluginInfo() {
     return {
         LLVM_PLUGIN_API_VERSION, "LoopUnrollEmitPass", "v0.1",

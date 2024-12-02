@@ -17,21 +17,7 @@ FASTEST_TIME=0
 for i in {1..8}; do
     LLVM_IR_FILE="${BASE_FILENAME}_${i}.ll"
     BASENAME=$(basename $LLVM_IR_FILE .ll)
-    OPTIMIZED_BC="${BASENAME}_opt.bc"
-    EXECUTABLE="${BASENAME}_exec"
-
-    if [ ! -f $LLVM_IR_FILE ]; then
-        # echo "Error: File $LLVM_IR_FILE not found. Skipping..."
-        continue
-    fi
-
-    # Optimize the LLVM IR
-    # echo "Optimizing $LLVM_IR_FILE..."
-    opt -O3 $LLVM_IR_FILE -o $OPTIMIZED_BC
-
-    # Compile and link the optimized bitcode directly to an executable with PIE support
-    # echo "Compiling $OPTIMIZED_BC..."
-    clang $OPTIMIZED_BC -o $EXECUTABLE -O3 -fPIE -pie
+    EXECUTABLE="${BASENAME}_exec" 
 
     # Ensure the executable was created successfully
     if [ ! -f $EXECUTABLE ]; then

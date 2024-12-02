@@ -1,7 +1,45 @@
 # DeepUnroll
 Leveraging Deep Learning for intelligent Loop Unrolling in LLVM
 
-# FAQ: Running LLVM Passes
+# Generating Optimal Loop Unroll
+
+## Script Requirements
+1. **LLVM Pass Shared Object(.so):** Ensure that your custom LLVM pass is compiled into a shared object file.
+2. **Input Directory:** Have a directory (e.g., ./codeFiles) containing .c source files to be processed.
+3. **Installed Tools:** Have LLVM, clang, and opt installed and available.
+
+## Step 1 - Compile LLVM Pass
+Naviagte to the build directory of `LoopUnrollFunction` or create one if one does not exist. Then configure and build the project.
+```
+cd DeepUnroll/LoopUnrollFunction/build
+cmake ..
+make
+```
+## Step 2 - Prepare Input Files
+Create a directory (e.g., codeFiles) in the project root and add all your .c source files to it.
+```
+mkdir codeFiles
+cp /path/to/source/files/*.c ./codeFiles/
+```
+
+## Step 3 - Running the Script
+Run the `process_and_benchmark.sh` script like so:
+```
+./process_and_benchmark.sh <directory_path> <offset> <iterations>
+```
+- `<directory_path>`: Path to the directory containing .c files (e.g., ./codeFiles).
+- `<offset>`: Start processing from the nth file in sorted order.
+- `<iterations>`: Number of files to process after the offset.
+
+## Step 4 - Results
+Output Files:
+- IR files (.ll) and executables (_exec) are generated temporarily and cleaned up after processing.
+
+Result File:
+- The script appends the fastest loop unroll factor for each loop to output.txt.
+
+
+# FAQ: General Running LLVM Passes
 
 ## Building and Compiling
 Building and compiling in this context involve creating a shared object (`.so`) file for your pass that can be dynamically loaded into the opt tool. The opt tool is the command-line utility provided by LLVM for working with its Intermediate Representation (IR).

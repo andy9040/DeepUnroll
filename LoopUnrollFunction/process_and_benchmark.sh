@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Ensure this script is executable by running: chmod +x process_and_benchmark.sh
+# Ensure this script is executable: chmod +x process_and_benchmark.sh
 
 # Input validation
-if [ $# -eq 0 ]; then
-    echo "Usage: ./process_and_benchmark.sh <source_file.c>"
+if [ $# -lt 3 ]; then
+    echo "Usage: ./process_and_benchmark.sh <directory_path> <offset> <iterations>"
     exit 1
 fi
 
-SOURCE_FILE=$1
-BASE_NAME=$(basename "$SOURCE_FILE" .c)
+DIRECTORY=$1
+OFFSET=$2
+ITERATIONS=$3
 LLVM_PASS="./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so"
-UNROLL_SCRIPT="./run_llvm.sh"
 
 # Ensure required tools are available
 if ! command -v clang &> /dev/null; then
@@ -29,89 +29,105 @@ if [ ! -f "$LLVM_PASS" ]; then
     exit 1
 fi
 
-if [ ! -x "$UNROLL_SCRIPT" ]; then
-    echo "Error: Unroll script not found or not executable: $UNROLL_SCRIPT"
-    exit 1
-fi
+# Get all .c files in the directory, sorted, and apply offset and limit
+FILES=$(ls "$DIRECTORY"/*.c | sort | tail -n +"$OFFSET" | head -n "$ITERATIONS")
 
-# Step 1: Compile the source file into LLVM IR
-LLVM_IR_FILE="${BASE_NAME}.ll"
-echo "Compiling $SOURCE_FILE into LLVM IR..."
-clang -emit-llvm -S -Xclang -disable-O0-optnone "$SOURCE_FILE" -o "$LLVM_IR_FILE"
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to generate LLVM IR for $SOURCE_FILE"
-    exit 1
-fi
+# Process each file in the subset
+for SOURCE_FILE in $FILES; do
+    BASE_NAME=$(basename "$SOURCE_FILE" .c)
+    LLVM_IR_FILE="${BASE_NAME}.ll"
+    echo "Processing file: $SOURCE_FILE"
 
-# Step 2: Run the LLVM pass
-echo "Running LLVM pass on $LLVM_IR_FILE..."
-opt -disable-output -load-pass-plugin="$LLVM_PASS" -passes="loop-unroll-emit" "$LLVM_IR_FILE"
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to run the LLVM pass."
-    exit 1
-fi
-
-# Step 3: Find all generated unrolled IR files
-echo "Looking for generated unrolled IR files..."
-UNROLLED_FILES=$(ls unrolled_factor_loop*_factor_*.ll 2> /dev/null)
-if [ -z "$UNROLLED_FILES" ]; then
-    echo "Error: No unrolled IR files found. Ensure your pass is generating them correctly."
-    exit 1
-fi
-
-# Step 4: Identify unique loops by globalOrder
-echo "Identifying unique loops by global order..."
-declare -A BEST_FACTORS
-LOOPS=$(echo "$UNROLLED_FILES" | grep -oP 'loop\d+' | sort | uniq)
-echo "Found loops: $LOOPS"
-
-# Step 5: Process each loop
-for LOOP in $LOOPS; do
-    echo "Processing $LOOP..."
-    BEST_FACTOR=0
-    BEST_TIME=""
-
-    # Filter files for the current loop
-    LOOP_FILES=$(echo "$UNROLLED_FILES" | grep "$LOOP")
-    if [ -z "$LOOP_FILES" ]; then
-        echo "No files found for $LOOP. Skipping..."
+    # Step 1: Compile the source file into LLVM IR
+    echo "Compiling $SOURCE_FILE into LLVM IR..."
+    clang -emit-llvm -S -Xclang -disable-O0-optnone "$SOURCE_FILE" -o "$LLVM_IR_FILE"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to generate LLVM IR for $SOURCE_FILE"
         continue
     fi
 
-    echo "Files for $LOOP: $LOOP_FILES"
+    # Step 2: Run the LLVM pass
+    echo "Running LLVM pass on $LLVM_IR_FILE..."
+    opt -disable-output -load-pass-plugin="$LLVM_PASS" -passes="loop-unroll-emit" "$LLVM_IR_FILE"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to run the LLVM pass."
+        continue
+    fi
 
-    # Benchmark each unroll factor for the current loop
-    for FILE in $LOOP_FILES; do
-        FACTOR=$(echo "$FILE" | grep -oP 'factor_\d+' | grep -oP '\d+')
-        echo "Running benchmark for $FILE (factor $FACTOR)..."
+    # Step 3: Find all generated unrolled IR files
+    UNROLLED_FILES=$(ls unrolled_factor_loop*_factor_*.ll 2> /dev/null)
+    if [ -z "$UNROLLED_FILES" ]; then
+        echo "Error: No unrolled IR files found. Ensure your pass is generating them correctly."
+        continue
+    fi
 
-        EXECUTION_TIME=$("$UNROLL_SCRIPT" "$FILE")
-        echo "Execution time for $FILE: $EXECUTION_TIME"
+    # Step 4: Generate executables
+    echo "Generating executables from unrolled IR files..."
+    for FILE in $UNROLLED_FILES; do
+        BASENAME=$(basename "$FILE" .ll)
+        OPTIMIZED_BC="${BASENAME}_opt.bc"
+        EXECUTABLE="${BASENAME}_exec"
 
-        if [ "$EXECUTION_TIME" != "Invalid." ]; then
-            # Track the best factor and execution time
-            if [ -z "$BEST_TIME" ] || (( $(echo "$EXECUTION_TIME < $BEST_TIME" | bc -l) )); then
-                BEST_TIME=$EXECUTION_TIME
-                BEST_FACTOR=$FACTOR
-            fi
-        else
-            echo "Invalid execution time for $FILE. Skipping..."
+        # Optimize the LLVM IR
+        opt -O3 "$FILE" -o "$OPTIMIZED_BC"
+        if [ $? -ne 0 ]; then
+            echo "Error: Failed to optimize $FILE"
+            continue
+        fi
+
+        # Compile to an executable
+        clang "$OPTIMIZED_BC" -o "$EXECUTABLE" -O3 -fPIE -pie
+        if [ $? -ne 0 ]; then
+            echo "Error: Failed to compile $OPTIMIZED_BC"
+            continue
         fi
     done
 
-    if [ "$BEST_FACTOR" -ne 0 ]; then
-        BEST_FACTORS["$LOOP"]=$BEST_FACTOR
-        echo "Best unroll factor for $LOOP: $BEST_FACTOR"
-    else
-        echo "No valid unroll factor found for $LOOP."
-    fi
+    # Step 5: Benchmark and find the fastest factor for each global loop ID
+    echo "Benchmarking executables by global loop ID..."
+    GLOBAL_IDS=$(echo "$UNROLLED_FILES" | grep -oP 'loop\d+' | sort | uniq)
+
+    for GLOBAL_ID in $GLOBAL_IDS; do
+        FASTEST_FACTOR=0
+        FASTEST_TIME=""
+
+        LOOP_FILES=$(echo "$UNROLLED_FILES" | grep "$GLOBAL_ID")
+        if [ -z "$LOOP_FILES" ]; then
+            echo "No files found for $GLOBAL_ID. Skipping..."
+            continue
+        fi
+
+        for FILE in $LOOP_FILES; do
+            FACTOR=$(echo "$FILE" | grep -oP 'factor_\d+' | grep -oP '\d+')
+            EXECUTABLE="unrolled_factor_${GLOBAL_ID}_factor_${FACTOR}_exec"
+
+            if [ ! -f "$EXECUTABLE" ]; then
+                echo "Error: Executable $EXECUTABLE not found. Skipping..."
+                continue
+            fi
+
+            START_TIME=$(date +%s.%N)
+            ./$EXECUTABLE > /dev/null 2>&1
+            END_TIME=$(date +%s.%N)
+            EXECUTION_TIME=$(echo "$END_TIME - $START_TIME" | bc)
+
+            if [ -z "$FASTEST_TIME" ] || (( $(echo "$EXECUTION_TIME < $FASTEST_TIME" | bc -l) )); then
+                FASTEST_TIME=$EXECUTION_TIME
+                FASTEST_FACTOR=$FACTOR
+            fi
+        done
+
+        if [ "$FASTEST_FACTOR" -ne 0 ]; then
+            echo "Finished a loop"
+            echo "$FASTEST_FACTOR" >> output.txt
+        else
+            echo "No valid unroll factor found for $GLOBAL_ID."
+        fi
+    done
+
+    echo "Done with file: $SOURCE_FILE"
+    rm -f *.bc *.ll *_exec
 done
 
-# Step 6: Output results
-echo "Summary of Best Unroll Factors:"
-for LOOP in "${!BEST_FACTORS[@]}"; do
-    echo "Loop: $LOOP, Best Unroll Factor: ${BEST_FACTORS[$LOOP]}"
-done
-
-#Step 7: Clean up
-# rm *.ll
+# Step 6: Clean up intermediate files (optional)
+echo "Processing complete for the selected files."
