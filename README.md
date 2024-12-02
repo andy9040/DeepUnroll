@@ -15,6 +15,12 @@ cd DeepUnroll/LoopUnrollFunction/build
 cmake ..
 make
 ```
+
+Note: If there are errors when running cmake .. or make, run the following in the build directory and then redo the commands above.
+```
+make clean
+rm -rf *
+```
 ## Step 2 - Prepare Input Files
 Create a directory (e.g., codeFiles) in the project root and add all your .c source files to it.
 ```
