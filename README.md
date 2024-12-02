@@ -23,6 +23,7 @@ rm -rf *
 ```
 ## Step 2 - Prepare Input Files
 Create a directory (e.g., codeFiles) in the project root and add all your .c source files to it.
+NOTE: There are premade folders with names that can be used so this step can be SKIPPED. The following is just how to move files to a more convenient location.
 ```
 mkdir codeFiles
 cp /path/to/source/files/*.c ./codeFiles/
