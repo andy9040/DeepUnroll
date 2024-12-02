@@ -22,6 +22,11 @@ mkdir codeFiles
 cp /path/to/source/files/*.c ./codeFiles/
 ```
 
+Usefule note: To get number of files in a folder, run:
+```
+find path/to/dir/ -type f | wc -l
+```
+
 ## Step 3 - Running the Script
 Run the `process_and_benchmark.sh` script like so:
 ```
