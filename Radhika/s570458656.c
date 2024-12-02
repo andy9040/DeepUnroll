@@ -1,0 +1,1 @@
+A[999][1000],I[1000],u[999];i,j;d;F=2;main(N){for(scanf("%d",&N);i<N;++i)for(j=0;j<N-1;)scanf("%d",A[j++]+i);for(;F&2;)for(F=1,i=!++d;i<N;++i)u[i]<d&I[i]<N-1&&u[F&=2,j=A[I[i]][i]-1]<d&A[I[j]][j]==i+1&&++I[u[i]=u[j]=d,++I[i],F=2,j];printf("%d",F*d-1);}

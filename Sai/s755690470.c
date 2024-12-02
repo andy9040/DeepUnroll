@@ -1,0 +1,1 @@
+s;main(c,p){for(;~scanf("%as",&p);c-=!!strstr(strcat(strdup(p),p),s))s=s?:p;exit(!printf("%d\n",-c));}

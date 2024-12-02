@@ -1,0 +1,1 @@
+m,s[]={0,31,60,91,121,152,182,213,244,274,305,335};main(d){char a[7][9]={"Thurs","Fri","Satur","Sun","Mon","Tues","Wednes"};while(1){scanf("%d%d",&m,&d);if(!m)exit(0);d+=s[m-1];printf("%sday\n",a[(d%7)?(d%7-1):6]);}}

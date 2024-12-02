@@ -1,0 +1,1 @@
+a['~~'],b[99999],c,n,i;u(int*x){i=*1[&x]-*x;}main(m){for(;scanf("%d%d",&n,&m)*n;memset(a,i=!printf("%d\n",c),8e4)){for(a[1]=c=1;i<3*m;)scanf("%d",b+i++);for(qsort(b,m,12,u);m--;)c+=a[b[m*3+1]]&&!a[b[m*3+2]]++;}}
