@@ -2,6 +2,9 @@
 
 # Ensure this script is executable: chmod +x process_and_benchmark.sh
 
+TIMEOUT_DURATION=60  # Timeout duration for long-running tasks
+
+
 # Input validation
 if [ $# -lt 3 ]; then
     echo "Usage: ./process_and_benchmark.sh <directory_path> <offset> <iterations>"
@@ -70,14 +73,24 @@ for SOURCE_FILE in $FILES; do
         EXECUTABLE="${BASENAME}_exec"
 
         # Optimize the LLVM IR
-        opt -O3 "$FILE" -o "$OPTIMIZED_BC"
+        echo "Create .bc file: $OPTIMIZED_BC"
+        if ! timeout $TIMEOUT_DURATION opt -O3 "$FILE" -o "$OPTIMIZED_BC"; then
+            echo "Error: Bitcode generation of $FILE took too long and was skipped."
+            continue
+        fi
+
+        
         if [ $? -ne 0 ]; then
             echo "Error: Failed to optimize $FILE"
             continue
         fi
 
         # Compile to an executable
-        clang "$OPTIMIZED_BC" -o "$EXECUTABLE" -O3 -fPIE -pie
+        echo "Create exec file: $EXECUTABLE"
+        if ! timeout $TIMEOUT_DURATION clang "$OPTIMIZED_BC" -o "$EXECUTABLE" -O3 -fPIE -pie; then
+            echo "Error: Compilation of $OPTIMIZED_BC took too long and was skipped."
+            continue
+        fi
         if [ $? -ne 0 ]; then
             echo "Error: Failed to compile $OPTIMIZED_BC"
             continue
@@ -107,8 +120,24 @@ for SOURCE_FILE in $FILES; do
                 continue
             fi
 
+            # Generate inputs dynamically while the program requests them
             START_TIME=$(date +%s.%N)
-            ./$EXECUTABLE > /dev/null 2>&1
+
+            # Use a coprocess to provide inputs dynamically
+            coproc INPUT_FEEDER {
+                while true; do
+                    RANDOM_INPUT=$((RANDOM % 101)) # Generate a random input
+                    echo "$RANDOM_INPUT" # Send the input
+                    sleep 0.01 # Slight delay to simulate user interaction
+                done
+            }
+
+            # Run the executable and attach the coprocess input
+            timeout 5 ./$EXECUTABLE <&"${INPUT_FEEDER[0]}" > /dev/null 2>&1
+
+            # Kill the input feeder once the executable is done
+            kill "${INPUT_FEEDER_PID}" 2>/dev/null
+
             END_TIME=$(date +%s.%N)
             EXECUTION_TIME=$(echo "$END_TIME - $START_TIME" | bc)
 
@@ -117,6 +146,8 @@ for SOURCE_FILE in $FILES; do
                 FASTEST_FACTOR=$FACTOR
             fi
         done
+
+
 
         if [ "$FASTEST_FACTOR" -ne 0 ]; then
             echo "Finished a loop"

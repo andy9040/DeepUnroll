@@ -31,6 +31,8 @@ Run the `process_and_benchmark.sh` script like so:
 - `<offset>`: Start processing from the nth file in sorted order.
 - `<iterations>`: Number of files to process after the offset.
 
+NOTE: At the top of the script, there's a TIMEOUT_DURATION hyperparamter you can choose. If a file with a specific unrollment factor can't compile into byte code or into an executable after TIMEOUT_DURATION seconds, the loop unrolling factor will be skipped.
+
 ## Step 4 - Results
 Output Files:
 - IR files (.ll) and executables (_exec) are generated temporarily and cleaned up after processing.
