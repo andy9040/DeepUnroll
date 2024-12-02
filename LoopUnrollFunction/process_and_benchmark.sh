@@ -4,7 +4,6 @@
 
 TIMEOUT_DURATION=60  # Timeout duration for long-running tasks
 
-
 # Input validation
 if [ $# -lt 3 ]; then
     echo "Usage: ./process_and_benchmark.sh <directory_path> <offset> <iterations>"
@@ -15,6 +14,9 @@ DIRECTORY=$1
 OFFSET=$2
 ITERATIONS=$3
 LLVM_PASS="./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so"
+
+# Set output file based on the directory name
+OUTPUT_FILE="${DIRECTORY##*/}_output.txt"  # Extract the base directory name and append _output.txt
 
 # Ensure required tools are available
 if ! command -v clang &> /dev/null; then
@@ -40,7 +42,7 @@ for SOURCE_FILE in $FILES; do
     BASE_NAME=$(basename "$SOURCE_FILE" .c)
     LLVM_IR_FILE="${BASE_NAME}.ll"
     echo "Processing file: $SOURCE_FILE"
-    echo "$SOURCE_FILE" >> output.txt
+    echo "$SOURCE_FILE" >> "$OUTPUT_FILE"
 
     # Step 1: Compile the source file into LLVM IR
     echo "Compiling $SOURCE_FILE into LLVM IR..."
@@ -79,20 +81,10 @@ for SOURCE_FILE in $FILES; do
             continue
         fi
 
-        
-        if [ $? -ne 0 ]; then
-            echo "Error: Failed to optimize $FILE"
-            continue
-        fi
-
         # Compile to an executable
         echo "Create exec file: $EXECUTABLE"
         if ! timeout $TIMEOUT_DURATION clang "$OPTIMIZED_BC" -o "$EXECUTABLE" -O3 -fPIE -pie; then
             echo "Error: Compilation of $OPTIMIZED_BC took too long and was skipped."
-            continue
-        fi
-        if [ $? -ne 0 ]; then
-            echo "Error: Failed to compile $OPTIMIZED_BC"
             continue
         fi
     done
@@ -147,11 +139,9 @@ for SOURCE_FILE in $FILES; do
             fi
         done
 
-
-
         if [ "$FASTEST_FACTOR" -ne 0 ]; then
             echo "Finished a loop"
-            echo "$FASTEST_FACTOR" >> output.txt
+            echo "$FASTEST_FACTOR" >> "$OUTPUT_FILE"
         else
             echo "No valid unroll factor found for $GLOBAL_ID."
         fi
