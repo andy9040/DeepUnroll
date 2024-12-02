@@ -482,8 +482,29 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
   /usr/include/c++/11/numeric \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
-  /usr/local/include/llvm/Support/InstructionCost.h
+  /usr/local/include/llvm/Support/InstructionCost.h \
+  /usr/local/include/llvm/IR/Dominators.h \
+  /usr/local/include/llvm/ADT/DepthFirstIterator.h \
+  /usr/local/include/llvm/Analysis/AssumptionCache.h \
+  /usr/local/include/llvm/Support/FileSystem.h \
+  /usr/local/include/llvm/Support/Chrono.h \
+  /usr/local/include/llvm/Support/FileSystem/UniqueID.h \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_stack.h
 
+
+/usr/include/c++/11/bits/stl_stack.h:
+
+/usr/include/c++/11/bits/deque.tcc:
+
+/usr/include/c++/11/stack:
+
+/usr/local/include/llvm/Support/FileSystem.h:
+
+/usr/local/include/llvm/Analysis/AssumptionCache.h:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
@@ -518,6 +539,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 /usr/local/include/llvm/Analysis/LoopAnalysisManager.h:
 
 /usr/local/include/llvm/ADT/PriorityWorklist.h:
+
+/usr/include/c++/11/deque:
 
 /usr/local/include/llvm/Transforms/Utils/LoopUtils.h:
 
@@ -559,6 +582,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 
 /usr/include/c++/11/tr1/ell_integral.tcc:
 
+/usr/local/include/llvm/ADT/DepthFirstIterator.h:
+
 /usr/include/c++/11/tr1/bessel_function.tcc:
 
 /usr/include/c++/11/tr1/special_function_util.h:
@@ -594,6 +619,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 /usr/local/include/llvm/ADT/IntrusiveRefCntPtr.h:
 
 /usr/local/include/llvm/Support/PGOOptions.h:
+
+/usr/local/include/llvm/Support/Chrono.h:
 
 /usr/local/include/llvm/Passes/OptimizationLevel.h:
 
@@ -853,6 +880,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
+/usr/include/c++/11/bits/stl_deque.h:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/local/include/llvm/ADT/ilist_base.h:
@@ -1014,6 +1043,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 /usr/local/include/llvm-c/ExternC.h:
 
 /usr/include/c++/11/ext/numeric_traits.h:
+
+/usr/local/include/llvm/IR/Dominators.h:
 
 /usr/include/c++/11/bits/atomic_base.h:
 
@@ -1260,6 +1291,8 @@ LoopUnrollFunctionPass/CMakeFiles/LoopUnrollFunctionPass.dir/Pass.cpp.o: ../Loop
 /usr/include/c++/11/system_error:
 
 /usr/include/c++/11/bits/vector.tcc:
+
+/usr/local/include/llvm/Support/FileSystem/UniqueID.h:
 
 /usr/include/c++/11/optional:
 
