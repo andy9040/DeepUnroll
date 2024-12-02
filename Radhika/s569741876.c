@@ -1,0 +1,1 @@
+main(){double a,b,c,d,*p=&d;&d<&c&&!printf("100.0");exit(0);}

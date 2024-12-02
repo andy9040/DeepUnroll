@@ -1,0 +1,1 @@
+t[3],c,s[];main(){for(;gets(*t?s:t);strstr(strncat(s,s,9),t)&&c++);c=!printf("%d\n",c);}

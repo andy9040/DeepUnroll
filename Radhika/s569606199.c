@@ -1,0 +1,1 @@
+a,b,c,d,e,*p=&d;main(){for(;~scanf("%d",p++););p=!printf("%.f\n",d-fmax(--b/e,--c/a)-1);}

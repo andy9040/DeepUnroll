@@ -1,0 +1,1 @@
+char a[11],b[11],c[11];i,C;main(n){scanf("%s%d",a,&n);for(;i++<n;){scanf("%s",b);strcpy(c,b);strcat(c,b);strstr(c,a)&&C++;}printf("%d\n",C);}

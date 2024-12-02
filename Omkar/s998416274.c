@@ -1,0 +1,1 @@
+i,j,k;main(s){for(gets(&s);~scanf(s="%d%d\n",&i,&j);)k+=j-i+1;printf(s+2,k);}

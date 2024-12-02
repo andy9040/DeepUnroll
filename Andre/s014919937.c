@@ -1,0 +1,1 @@
+main(float a){for(;~scanf("%f",&a);)printf("%f\n",a/27.*211);}
