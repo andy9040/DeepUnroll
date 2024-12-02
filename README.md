@@ -45,6 +45,11 @@ Run the `process_and_benchmark.sh` script like so:
 
 NOTE: At the top of the script, there's a TIMEOUT_DURATION hyperparamter you can choose. If a file with a specific unrollment factor can't compile into byte code or into an executable after TIMEOUT_DURATION seconds, the loop unrolling factor will be skipped.
 
+If you want to run this as a process that will continue even if you get logged out of your server, use nohup like so:
+```
+nohup ./process_and_benchmark.sh ../Andre 0 200 > output.log 2>&1 &
+```
+
 ## Step 4 - Results
 Output Files:
 - IR files (.ll) and executables (_exec) are generated temporarily and cleaned up after processing.
