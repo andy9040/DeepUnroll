@@ -1,7 +1,7 @@
 # DeepUnroll
 Leveraging Deep Learning for intelligent Loop Unrolling in LLVM
 
-# Generating Optimal Loop Unroll
+# Generating Optimal Loop Unroll Data
 
 ## Script Requirements
 1. **LLVM Pass Shared Object(.so):** Ensure that your custom LLVM pass is compiled into a shared object file.
@@ -23,7 +23,7 @@ rm -rf *
 ```
 ## Step 2 - Prepare Input Files
 Create a directory (e.g., codeFiles) in the project root and add all your .c source files to it.
-NOTE: There are premade folders with names that can be used so this step can be SKIPPED. The following is just how to move files to a more convenient location.
+NOTE: There are premade folders with names that can be used so this step can be SKIPPED. The following is just how to move files to a more convenient location if desired.
 ```
 mkdir codeFiles
 cp /path/to/source/files/*.c ./codeFiles/
@@ -69,7 +69,7 @@ cmake ..
 make
 ```
 
-## Applying the Pass
+## Applying Individual Pass
 
 Compile a source file (e.g., `test.c`) into LLVM IR using clang:
 ```
@@ -80,19 +80,19 @@ Note: The optnone attribute, added by Clang when compiling with -O0, instructs t
 
 Use the `opt` tool to apply the pass (e.g., `GatherDataFunctionPass`) to the LLVM IR:
 ```
-opt -disable-output -load-pass-plugin=./build/GatherDataFunctionPass/GatherDataFunctionPass.so -passes="loop-info" test.ll > output.json
+opt -disable-output -load-pass-plugin=./build/GatherDataFunctionPass/GatherDataFunctionPass.so -passes="loop-info" test.ll 
 ```
 or
 ```
 opt -disable-output -load-pass-plugin=./build/LoopUnrollFunctionPass/LoopUnrollFunctionPass.so -passes="loop-unroll-emit" test.ll
 ```
 
-To prettify the json output:
+If there's json out, you can prettify the json output:
 ```
 python3 -m json.tool output.json > pretty_output.json
 ```
 
-# CSV Outpt
+# Potentional CSV Outpt Consideration
 Depth,BasicBlocks,TotalInstructions,MemoryOperations,BranchInstructions,PHINodes,FlowDeps,AntiDeps,OutputDeps,InputDeps,IsSimplified,NormalizedBlockFrequencies,BranchProbabilities, IDEAL LOOP UNROLL FACTOR
 
 # Set up
