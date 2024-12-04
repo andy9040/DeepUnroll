@@ -1,251 +1,207 @@
 ../Andre/s012558933.c
 5
 ../Andre/s012564900.c
-1
-skipped
-../Andre/s012570867.c
-5
-../Andre/s012593087.c
-../Andre/s012595296.c
-7
-../Andre/s012603345.c
-2
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s012658536.c
-../Andre/s012665364.c
-../Andre/s012725316.c
-../Andre/s012738794.c
-1
-skipped
-../Andre/s012740756.c
-3
-skipped
-skipped
-skipped
-../Andre/s012811919.c
-5
-skipped
-skipped
-../Andre/s012845992.c
-../Andre/s012851847.c
-1
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s012857996.c
-1
-skipped
-skipped
-skipped
-../Andre/s012870363.c
-../Andre/s012891632.c
-3
-skipped
-../Andre/s012932684.c
-5
-../Andre/s012937718.c
-6
-../Andre/s012943849.c
-6
-skipped
-../Andre/s012993296.c
-2
-skipped
-skipped
-../Andre/s012996456.c
-1
-skipped
-skipped
-skipped
-skipped
-../Andre/s013018943.c
-../Andre/s013024863.c
-5
-skipped
-../Andre/s013061097.c
-../Andre/s013075865.c
-6
-skipped
-skipped
-skipped
-../Andre/s013079970.c
-5
-../Andre/s013082339.c
-../Andre/s013089910.c
-../Andre/s013101860.c
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Error: Failed to generate LLVM IR for {}
+Processing complete for all selected files.
+../Andre/s012558933.c
 4
-../Andre/s013130510.c
-6
-skipped
-skipped
-skipped
-../Andre/s013130526.c
-../Andre/s013130980.c
-../Andre/s013137219.c
-3
-7
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-6
-4
-6
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s013139515.c
-../Andre/s013139630.c
-1
-skipped
-skipped
-../Andre/s013153702.c
-../Andre/s013165424.c
-2
-skipped
-../Andre/s013167398.c
-../Andre/s013198621.c
-../Andre/s013199840.c
-../Andre/s013221634.c
-../Andre/s013242383.c
-5
-../Andre/s013261780.c
-4
-skipped
-skipped
-../Andre/s013293334.c
-2
-skipped
-skipped
-../Andre/s013303669.c
-1
-skipped
-skipped
-../Andre/s013304916.c
-2
-skipped
-../Andre/s013310676.c
-1
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s013311416.c
-2
-skipped
-skipped
-skipped
-../Andre/s013326692.c
-3
-skipped
-skipped
-skipped
-../Andre/s013329647.c
-../Andre/s013337827.c
-4
-../Andre/s013342864.c
-3
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s013353298.c
-5
-skipped
-../Andre/s013359202.c
-1
-skipped
-../Andre/s013371314.c
-2
-skipped
-skipped
-skipped
-../Andre/s013382421.c
-../Andre/s013399930.c
-../Andre/s013474173.c
-3
-skipped
-../Andre/s013483907.c
-5
-skipped
-skipped
-../Andre/s013494543.c
-4
-../Andre/s013495831.c
-../Andre/s013508148.c
-2
-skipped
-skipped
-../Andre/s013554008.c
-../Andre/s013557605.c
-../Andre/s013599801.c
-5
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s013600800.c
-../Andre/s013601412.c
-1
-skipped
-skipped
-skipped
-skipped
-../Andre/s013621865.c
-5
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-skipped
-../Andre/s013653113.c
-../Andre/s013674565.c
-../Andre/s013678113.c
-1
-skipped
-skipped
-../Andre/s013707298.c
-../Andre/s013724772.c
-../Andre/s013725688.c
-7
-1
-skipped
-../Andre/s013732010.c
-4
-2
-../Andre/s013759070.c
-skipped
-skipped
-../Andre/s013766408.c
-4
-skipped
-skipped
-../Andre/s013777872.c
-6
-skipped
-../Andre/s013778001.c
-5
-../Andre/s013783418.c
-../Andre/s013790752.c
-../Andre/s013792504.c
-1
-../Andre/s013803695.c
+../Andre/s012564900.c

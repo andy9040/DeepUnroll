@@ -11,7 +11,7 @@ def predict(file_path):
     df = pd.read_csv(file_path, delimiter=",", header=None)
 
     # Drop the filename column (0th index) and the empty column
-    df.drop(columns=[0, 12, 17], inplace=True)
+    df.drop(columns=[0, 12], inplace=True)
 
     # Extract numerical data columns
     numerical_columns = list(range(11))  # First 11 numerical columns
@@ -21,9 +21,8 @@ def predict(file_path):
     additional_numeric_column = df.iloc[:, 11]
 
     # Process block frequencies and branch probabilities (columns 14 and 15)
-    block_frequencies = df.iloc[:, 12].apply(lambda x: np.array(list(map(float, x.split(";")))))
-    branch_probabilities = df.iloc[:, 13].apply(lambda x: np.array(list(map(float, x.split(";")))))
-
+    block_frequencies = df.iloc[:, 12].apply(lambda x: np.array(list(map(float, str(x).split(";")))))
+    branch_probabilities = df.iloc[:, 13].apply(lambda x: np.array(list(map(float, str(x).split(";")))))
     # Compute statistical measures for block frequencies
     block_stats = pd.DataFrame({
         "BlockFreq_Mean": block_frequencies.apply(np.mean),
@@ -63,7 +62,7 @@ def predict(file_path):
         random_state=42
     )
 
-    xgb_model.load_model('xgboost_model.json')
+    xgb_model.load_model('xgb_model.json')
 
     return xgb_model.predict(scaled_data)
 
@@ -74,7 +73,7 @@ def main():
     args = parser.parse_args()
 
     predictions = predict(args.file_path)
-    print("Predictions:", predictions)
+    print(predictions[0])
 
 if __name__ == "__main__":
     main()
