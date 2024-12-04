@@ -108,8 +108,16 @@ for OPT in O0 O1 O2 O3 optimized optimized.O1 optimized.O2 optimized.O3; do
   RESULTS[$OPT]=$(measure_time "$EXECUTABLE" $NUM_RUNS)
 done
 
+if [[ ! -f results.csv ]]; then
+  echo "O0,O1,O2,O3,optimized,optimized.O1,optimized.O2,optimized.O3" > results.csv
+fi
+
+
 # Print results
 echo "Average Execution Times (in seconds):"
 for OPT in O0 O1 O2 O3 optimized optimized.O1 optimized.O2 optimized.O3; do
   echo "$OPT: ${RESULTS[$OPT]} seconds"
 done
+
+rm *.ll
+rm *_executable
