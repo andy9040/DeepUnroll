@@ -146,7 +146,7 @@ static llvm::cl::opt<std::string> InputFileName(
             //Disable loop unrolling from LLVM
             loop->setLoopID(MDNode::get(F.getContext(), MDString::get(F.getContext(), "llvm.loop.unroll.disable")));
 
-            
+            //Use ML model
             std::string command = "python3 predict_boost.py " + filename;
             FILE* pipe = popen(command.c_str(), "r");
             if (!pipe) {
@@ -159,9 +159,7 @@ static llvm::cl::opt<std::string> InputFileName(
             }
             pclose(pipe);
 
-            // llvm::outs() << "Prediction " << outputValue+1 << "\n";
-            // Read the output of the Python script
-
+            //Set the unroll factor
             unsigned UnrollFactor = outputValue+1;
             UnrollLoopOptions ULO;
             ULO.Count = UnrollFactor;
