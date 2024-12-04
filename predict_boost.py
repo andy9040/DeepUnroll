@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 import xgboost as xgb
 from sklearn.preprocessing import StandardScaler
+import argparse
 
 # Load and process the dataset
 def predict(file_path):
@@ -66,4 +67,14 @@ def predict(file_path):
 
     return xgb_model.predict(scaled_data)
 
-print(predict('data.csv'))
+# Main function to run the script
+def main():
+    parser = argparse.ArgumentParser(description="Predict using pre-trained XGBoost model")
+    parser.add_argument("file_path", type=str, help="Path to the input CSV file")
+    args = parser.parse_args()
+
+    predictions = predict(args.file_path)
+    print("Predictions:", predictions)
+
+if __name__ == "__main__":
+    main()
