@@ -17,7 +17,7 @@ if [ ! -d "$DIRECTORY" ]; then
 fi
 
 # Initialize the results CSV with a header (if not already created)
-RESULTS_FILE="results.csv"
+RESULTS_FILE="results-fnn.csv"
 if [[ ! -f $RESULTS_FILE ]]; then
   echo "Filename,O0,O1,O2,O3,optimized,optimized.O1,optimized.O2,optimized.O3" > $RESULTS_FILE
 fi

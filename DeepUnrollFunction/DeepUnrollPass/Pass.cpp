@@ -147,7 +147,9 @@ static llvm::cl::opt<std::string> InputFileName(
             loop->setLoopID(MDNode::get(F.getContext(), MDString::get(F.getContext(), "llvm.loop.unroll.disable")));
 
             //Use ML model
-            std::string command = "python3 predict_boost.py " + filename;
+            // std::string command = "python3 predict_boost.py " + filename;
+            std::string command = "python3 scriptFNN.py " + filename;
+
             FILE* pipe = popen(command.c_str(), "r");
             if (!pipe) {
                 llvm::outs() << "Failed to run Python script!" << "\n";

@@ -72,14 +72,14 @@ def predict(file_path):
     # Combine all features
     processed_features = pd.concat([numerical_data, additional_numeric_column, block_stats, branch_stats], axis=1)
 
-    with open('scalerFFN.pkl', 'rb') as f:
+    with open('scalerFNN.pkl', 'rb') as f:
         loaded_scaler = pickle.load(f)
 
     scaled_data = loaded_scaler.transform(processed_features.to_numpy())
 
     model = FFN()
 
-    model.load_state_dict(torch.load('ffn_model_weights.pth'))
+    model.load_state_dict(torch.load('fnn_model_weights.pth'))
 
     model.eval()
 
@@ -92,7 +92,7 @@ def main():
     args = parser.parse_args()
 
     predictions = predict(args.file_path)
-    print("Predictions:", predictions)
+    print(predictions)
 
 if __name__ == "__main__":
     main()

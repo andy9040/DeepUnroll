@@ -2,7 +2,7 @@ import pandas as pd
 from scipy.stats import zscore
 
 # Load the CSV file into a DataFrame
-file_path = 'results.csv'  # Replace with the actual path to your CSV file
+file_path = 'results-fnn.csv'  # Replace with the actual path to your CSV file
 df = pd.read_csv(file_path)
 
 # Remove outliers using Z-Score
