@@ -148,7 +148,7 @@ static llvm::cl::opt<std::string> InputFileName(
 
             //Use ML model
             // std::string command = "python3 predict_boost.py " + filename;
-            std::string command = "python3 scriptFNN.py " + filename;
+            std::string command = "python3 scriptFNN.py " + InputFileName + " " filename;
 
             FILE* pipe = popen(command.c_str(), "r");
             if (!pipe) {

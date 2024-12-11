@@ -1,6 +1,8 @@
 import llvmlite.binding as llvm
 import os
 
+#TODO: This version of the scipt does not work but would be nice to have
+
 # Initialize the LLVM JIT compiler
 llvm.initialize()
 llvm.initialize_native_target()
