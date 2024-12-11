@@ -45,6 +45,7 @@ namespace {
                 ScalarEvolution.getBackedgeTakenCount(loop)->print(RSO);
             }
 
+            //get counts
             unsigned TotalInstructions = 0, MemOps = 0, Branches = 0, PHINodes = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -61,6 +62,7 @@ namespace {
                 }
             }
 
+            //get dep types
             unsigned FlowDeps = 0, AntiDeps = 0, OutputDeps = 0, InputDeps = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -82,6 +84,7 @@ namespace {
 
             std::string IsSimplified = loop->isLoopSimplifyForm() ? "1" : "0";
 
+            //get block freq
             std::string BlockFreqsStr;
             for (auto *BB : loop->blocks()) {
                 double NormalizedFreq = BFI.getBlockFreq(BB).getFrequency() / BaselineFrequency;
@@ -89,6 +92,7 @@ namespace {
                 BlockFreqsStr += std::to_string(NormalizedFreq);
             }
 
+            //get branch prob
             std::string BranchProbsStr;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {

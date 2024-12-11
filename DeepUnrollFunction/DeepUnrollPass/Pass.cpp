@@ -40,7 +40,7 @@ static llvm::cl::opt<std::string> InputFileName(
 
         std::string filename = "output.csv";
         
-
+        //Premade analyses from LLVM
         auto &LoopInfo = FAM.getResult<LoopAnalysis>(F);
         auto &ScalarEvolution = FAM.getResult<ScalarEvolutionAnalysis>(F);
         auto &DA = FAM.getResult<DependenceAnalysis>(F);
@@ -49,8 +49,6 @@ static llvm::cl::opt<std::string> InputFileName(
         auto &TTI = FAM.getResult<TargetIRAnalysis>(F);
         auto &DT = FAM.getResult<DominatorTreeAnalysis>(F);
         auto &AC = FAM.getResult<AssumptionAnalysis>(F);
-
-
         double BaselineFrequency = static_cast<double>(BFI.getEntryFreq().getFrequency());
 
         // Print CSV header
@@ -76,6 +74,7 @@ static llvm::cl::opt<std::string> InputFileName(
                 ScalarEvolution.getBackedgeTakenCount(loop)->print(RSO);
             }
 
+            //get counts
             unsigned TotalInstructions = 0, MemOps = 0, Branches = 0, PHINodes = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -92,6 +91,7 @@ static llvm::cl::opt<std::string> InputFileName(
                 }
             }
 
+            //get depedenceies
             unsigned FlowDeps = 0, AntiDeps = 0, OutputDeps = 0, InputDeps = 0;
             for (auto *BB : loop->blocks()) {
                 for (auto &I : *BB) {
@@ -106,6 +106,7 @@ static llvm::cl::opt<std::string> InputFileName(
                 }
             }
 
+            //get other upseful information
             std::string ParentDepthStr = "None";
             if (auto *Parent = loop->getParentLoop()) {
                 ParentDepthStr = std::to_string(Parent->getLoopDepth());

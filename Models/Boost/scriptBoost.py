@@ -10,7 +10,7 @@ def predict(file_path):
     # Load the dataset
     df = pd.read_csv(file_path, delimiter=",", header=None)
 
-    # Drop the filename column (0th index) and the empty column
+    # Drop the columns we don't need from the data - 0 (name), 12 (empty)
     df.drop(columns=[0, 12], inplace=True)
 
     # Extract numerical data columns
@@ -46,8 +46,11 @@ def predict(file_path):
     # Combine all features
     processed_features = pd.concat([numerical_data, additional_numeric_column, block_stats, branch_stats], axis=1)
 
+
+    #Train model!
     with open('scaler.pkl', 'rb') as f:
         loaded_scaler = pickle.load(f)
+
 
     scaled_data = loaded_scaler.transform(processed_features.to_numpy())
 

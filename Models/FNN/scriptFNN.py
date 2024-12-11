@@ -9,16 +9,19 @@ import torch.optim as optim
 import numpy as np
 
 class FFN(nn.Module):
+
+    #core architecture of FNN
     def __init__(self):
         super(FFN, self).__init__()
         self.fc1 = nn.Linear(24, 128)
         self.relu1 = nn.ReLU()
-        self.fc2 = nn.Linear(128, 256)  # Output logits for each class
+        self.fc2 = nn.Linear(128, 256) 
         self.relu2 = nn.ReLU()
-        self.fc3 = nn.Linear(256, 64)  # Output logits for each class
+        self.fc3 = nn.Linear(256, 64)  
         self.relu3 = nn.ReLU()
-        self.fc4 = nn.Linear(64, 8)  # Output logits for each class
+        self.fc4 = nn.Linear(64, 8) 
 
+    #define forward pass with ReLu
     def forward(self, x):
         x = self.fc1(x)
         x = self.relu1(x)
@@ -30,26 +33,21 @@ class FFN(nn.Module):
         return x
 
 
-# Load and process the dataset
 def predict(file_path):
-    # Load the dataset
+    # Load the dataset and drop unnecessary columns
     df = pd.read_csv(file_path, delimiter=",", header=None)
-
-    # Drop the filename column (0th index) and the empty column
     df.drop(columns=[0, 12], inplace=True)
 
-    # Extract numerical data columns
+    # Data Processing
     numerical_columns = list(range(11))  # First 11 numerical columns
     numerical_data = df.iloc[:, numerical_columns]
-
-    # Extract additional single numerical column (13th column)
     additional_numeric_column = df.iloc[:, 11]
-
-    # Process block frequencies and branch probabilities (columns 14 and 15)
+    
+    # Process the columns that are list of nums (block freq and branch prob)
     block_frequencies = df.iloc[:, 12].apply(lambda x: np.array(list(map(float, str(x).split(";")))))
     branch_probabilities = df.iloc[:, 13].apply(lambda x: np.array(list(map(float, str(x).split(";")))))
 
-    # Compute statistical measures for block frequencies
+    # Compute statistical measures for block frequencies because current format is difficult to handle
     block_stats = pd.DataFrame({
         "BlockFreq_Mean": block_frequencies.apply(np.mean),
         "BlockFreq_Max": block_frequencies.apply(np.max),
@@ -59,7 +57,7 @@ def predict(file_path):
         "BlockFreq_Count": block_frequencies.apply(len),
     })
 
-    # Compute statistical measures for branch probabilities
+    # Compute statistical measures for branch probabilities because current format is difficult to handle
     branch_stats = pd.DataFrame({
         "BranchProb_Mean": branch_probabilities.apply(np.mean),
         "BranchProb_Max": branch_probabilities.apply(np.max),
@@ -72,6 +70,7 @@ def predict(file_path):
     # Combine all features
     processed_features = pd.concat([numerical_data, additional_numeric_column, block_stats, branch_stats], axis=1)
 
+    #Training the model!
     with open('scalerFNN.pkl', 'rb') as f:
         loaded_scaler = pickle.load(f)
 
@@ -85,7 +84,7 @@ def predict(file_path):
 
     return np.argmax(model(torch.Tensor(scaled_data)).detach().numpy()) + 1
 
-# Main function to run the script
+
 def main():
     parser = argparse.ArgumentParser(description="Predict using pre-trained XGBoost model")
     parser.add_argument("file_path", type=str, help="Path to the input CSV file")
