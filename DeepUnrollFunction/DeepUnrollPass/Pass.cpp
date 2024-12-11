@@ -146,9 +146,10 @@ static llvm::cl::opt<std::string> InputFileName(
             //Disable loop unrolling from LLVM
             loop->setLoopID(MDNode::get(F.getContext(), MDString::get(F.getContext(), "llvm.loop.unroll.disable")));
 
-            //Use ML model
-            // std::string command = "python3 predict_boost.py " + filename;
-            std::string command = "python3 scriptFNN.py " + InputFileName + " " filename;
+            //TODO: Select model
+            std::string command = "python3 scriptBoost.py " + filename;
+            // std::string command = "python3 script.py " + filename;
+            // std::string command = "python3 scriptBERT.py " + InputFileName + " " filename;
 
             FILE* pipe = popen(command.c_str(), "r");
             if (!pipe) {
