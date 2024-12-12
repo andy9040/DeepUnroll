@@ -80,6 +80,8 @@ def process_dataset(file_path):
     branch_probabilities = df.iloc[:, 13].apply(lambda x: ", ".join(map(str, x.split(";"))))
     ast_column = df.iloc[:, -1]
 
+    # convert the numeric inputs into text format suitable for BERT's tokenizer
+
     df["Text"] = df.apply(lambda row: (
         f"Depth: {row[2]}; Basic Blocks: {row[3]}; Total Instructions: {row[4]}; "
         f"Memory Operations: {row[5]}; Branches: {row[6]}; PHI Nodes: {row[7]}; "
@@ -104,6 +106,7 @@ def main():
     processed_c_file = "processed.c"
     remove_directives_and_comments(c_file, processed_c_file)
 
+    # access cleaned file
     with open(processed_c_file, "r") as file:
         text = file.read()
 
@@ -144,7 +147,7 @@ def main():
         outputs = model(**encodings)
         predictions = outputs.logits.argmax(dim=1).cpu().numpy() + 1
 
-    print("Predictions:", predictions)
+    print(predictions[0])
 
 if __name__ == "__main__":
     main()
